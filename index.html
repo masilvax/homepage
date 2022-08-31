@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jakub Bartek - Frontend Dev</title>
+    <link rel="stylesheet" href="style/main.css"></style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="navigation" id="navigation">
+            <ul class="navigation__ul">
+                <li class="navigation__li" data-dest="home">Home</li>
+                <li class="navigation__li" data-dest="about">About Me</li>
+                <li class="navigation__li" data-dest="experience">Experience</li>
+                <li class="navigation__li" data-dest="contact">Contact</li>
+            </ul>
+            <ul class="navigation__ulIconBar">
+                <li class="navigation__li--tools">
+                    <a class="navigation__btn" href="https://www.linkedin.com/in/jakub-bartek-a908386/" target="_blank">
+                        <div class="tooltip">LinkedIn</div>
+                        <img src="style/linkedin-svgrepo-com.svg" alt="LinkedIn"/>
+                    </a>
+                </li>
+                <li class="navigation__li--tools">
+                    <a class="navigation__btn" href="https://github.com/masilvax" target="_blank">
+                        <div class="tooltip">GitHub</div>
+                        <img src="style/github-svgrepo-com.svg" alt="Git"/>
+                    </a>
+                </li>
+                <li class="navigation__li--tools">
+                    <button class="navigation__btn navigation__btn--lang">
+                        <div class="tooltip">e-mail</div>
+                        <span class="material-icons">mail</span>
+                    </button>
+                </li>
+                <li class="navigation__li--tools">
+                    <button class="navigation__btn navigation__btn--menu" id="toggleMenuBtn">
+                        <div class="tooltip">Toggle menu</div>
+                        <span class="material-icons">menu</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+        <div class="mainView">
+            <section class="mainView__section" id="home">
+                <header class="mainView__section__header">Frontend Dev fond on schabowy</header>
+                <div class="mainView__section__content-container">
+                    <img src="style/Jakub1.jpg" alt="ja" class="mainView__section__img">
+                    <img src="style/Jakub2.jpg" alt="znowu ja" class="mainView__section__img">
+                </div>
+            </section>
+
+            <section class="mainView__section" id="about">
+                <header class="mainView__section__header">About me</header>
+                <div class="mainView__section__content-container">
+                    <div class="mainView__section__card">
+                        <p>terefere terefere terefere terefere terefere terefere terefere 
+                        terefere terefere terefere terefere terefere terefere terefere 
+                        terefere terefere terefere terefere terefere terefere terefere terefere terefere terefere </p>
+                    </div>
+
+                    <div class="mainView__section__card">
+                        <p>terefere terefere terefere terefere terefere terefere terefere 
+                        terefere terefere terefere terefere terefere terefere terefere 
+                        terefere terefere terefere terefere terefere terefere terefere terefere terefere terefere </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mainView__section" id="experience">
+                <header class="mainView__section__header">Experience</header>
+                <div class="mainView__section__card"></div>
+            </section>
+
+            <section class="mainView__section" id="contact">
+                <header class="mainView__section__header">Contact</header>
+            </section>
+        </div>
+    </div>
+    
+
+
+    <script src="dist/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+:root {
+    --borderWidth:8px;
+    --color1:#a801a8;
+    --color2:#3fbdbd;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: url('indeks2.png') 0/cover;
+    font-size: 20px;
+    font-family: 'Lato';
+}
+
+.wrapper {
+    display: flex;
+    overflow: hidden;
+    flex-direction: row-reverse;
+    min-height: 100vh;
+}
+
+.navigation {
+    transition: margin-left .3s ease-in-out, left .3s ease-in-out;
+    width: 100vw;
+    height: 100%;/* Na mobilnych dochodzi chowający się pasek adresu i wszystko psuje, dlatego PROCENT!!! */
+    margin-left: 0px;
+    left:100vw;
+    border-right: none;
+    border-left: var(--borderWidth) solid var(--color1);/*#fa05fa;*/
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 99;
+}
+.navigation ul {
+    list-style: none;
+}
+.navigation__ul {
+    width: 100%;
+    justify-content: end;
+    display: flex;
+    flex-direction: column;
+}
+.navigation__ulIconBar {
+    display: flex;
+    background-color: var(--color1);
+    width: 56px;
+    justify-content: end;
+    flex-direction: column;
+}
+.navigation__li {
+    width: 100%;
+    height: 56px;
+    color: var(--color2);
+    cursor: pointer;
+    transition: background-color .3s ease-in-out;
+    border-top: var(--borderWidth) solid transparent;
+    border-bottom: var(--borderWidth) solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navigation__li:hover {
+    background-color: var(--color1);
+    border-color: var(--color1);
+}
+.navigation__li--tools {
+    display: inline-block;
+}
+.navigation__btn {
+    border:none;
+    background-color: var(--color1);
+    padding: 16px;
+    cursor: pointer;
+    width: 56px;
+    height: 56px;
+    display: block;/* <a> też z tego korzysta */
+    transition: background-color .3s ease-in-out;
+}
+.navigation__btn:hover {
+    border: var(--borderWidth) solid var(--color2);
+    background-color: var(--color2);
+    padding: calc(16px - var(--borderWidth));
+    cursor: pointer;
+    width: 56px;
+    height: 56px;
+    display: block;/* <a> też z tego korzysta */
+}
+.navigation__btn img {
+    width:22px;/* 24 mają te materiałowe, ale nie wypełniają całości */
+}
+.tooltip {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    font-size: .9rem;
+    margin-top: 0px;
+    margin-left: -120px;
+    width: 100px;
+    text-align: center;
+    background: var(--color2);
+    z-index: 1;
+    padding: 4px;
+    border-radius: 2px;
+    color: black;
+    transition: opacity .3s ease-in-out;
+}
+.navigation__btn:hover > .tooltip {
+    visibility:visible;
+    opacity: 1;
+}
+.navigation__btn--menu {
+    border-radius: 50% 0 0 0;
+    transition: transform .3s ease-in-out, left .3s ease-in-out, background-color .3s ease-in-out;
+    transform: translateX(-100vw);
+}
+
+.mainView {
+    flex-grow: 1;
+    overflow-y: scroll;
+    max-height: 100vh;
+}
+.mainView__section {
+    width: 100%;
+    min-height: 100%;
+    border-bottom: var(--borderWidth) solid var(--color1);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 0 10%;
+}
+.mainView__section__header {
+    width: 100%;
+    text-align: center;
+    padding: 16px;
+    color: var(--color2);
+}
+.mainView__section__content-container {
+    width: 100%;  
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-evenly;
+    flex-grow: 1;
+    padding-bottom: 10%;
+}
+.mainView__section__card {
+    border: var(--borderWidth) solid var(--color1);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    width: 100%;
+    padding: 32px;
+    color: var(--color2);
+}
+.mainView__section__img {
+    width:60%;
+    border-radius: 50%;
+    border: var(--borderWidth) solid var(--color2);
+}
+.mainView__section__img:nth-child(2) {
+    border-color: var(--color1);
+}
+
+p{
+    text-align: justify;
+}
+
+@media screen and (min-width: 768px){
+    .wrapper {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .navigation{
+        position: unset;
+        width: 224px;
+        height: 100vh;/* dla desktopów już nie % tylko vh */
+        flex-direction: column;
+        border-right: var(--borderWidth) solid var(--color1);
+        border-left: none;
+        left:0;
+    }
+
+    .navigation__ulIconBar {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .navigation__btn--menu {
+        border-radius: 0 50% 0 0;
+        transform: translateX(0px);
+    }
+
+    .tooltip {
+        margin-left: -15px;
+        margin-top: -50px;
+    }
+
+    .mainView__section__header{
+        font-size: 2rem;
+        padding: 32px;
+    }
+}
+
+@media screen and (min-width: 966px){
+    .mainView__section__img {
+        width:30%;
+    }
+}
