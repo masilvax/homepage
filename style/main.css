@@ -185,9 +185,12 @@ ul {
 .mainView__section__card--skills li > span {
     align-items: center;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: end;
     flex-wrap: wrap;
     position: relative;
+}
+.mainView__section__card--skills li > span:first-child {
+    margin-right: 8px;
 }
 
 .mainView__section__card__subheader {
