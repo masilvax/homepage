@@ -12,7 +12,7 @@
 
 body{
     background: url('indeks.png') 0/cover;
-    font-size: 20px;
+    font-size: 16px;
     font-family: 'Lato';
 }
 
@@ -39,7 +39,7 @@ body{
     position: fixed;
     z-index: 99;
 }
-.navigation ul {
+ul {
     list-style: none;
 }
 .navigation__ul {
@@ -113,9 +113,13 @@ body{
     color: black;
     transition: opacity .3s ease-in-out;
 }
-.navigation__btn:hover > .tooltip {
+.navigation__btn:hover > .tooltip, .mainView__section__img--skills:hover + .tooltip {
     visibility:visible;
     opacity: 1;
+}
+.mainView__section__img--skills:hover + .tooltip {
+    margin-top: 0px;
+    margin-left: -108px;
 }
 .navigation__btn--menu {
     border-radius: 50% 0 0 0;
@@ -138,6 +142,7 @@ body{
     padding: 0 10%;
 }
 .mainView__section__header {
+    font-size: 2rem;
     width: 100%;
     text-align: center;
     padding: 16px;
@@ -147,10 +152,13 @@ body{
     width: 100%;  
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-content: space-evenly;
     flex-grow: 1;
     padding-bottom: 10%;
+}
+.mainView__section__content-container--home {
+    justify-content: space-around;
 }
 .mainView__section__card {
     border: var(--borderWidth) solid var(--color1);
@@ -160,6 +168,58 @@ body{
     padding: 32px;
     color: var(--color2);
 }
+.mainView__section__card--skills {
+    margin-bottom: 32px;
+}
+.mainView__section__card--skills li {
+    background-color: rgba(0,0,0,.3);
+    padding: 8px;
+    margin-top:4px;
+    display: flex;
+    justify-content: space-between;
+}
+.mainView__section__card--skills li:first-child {
+    margin-top: 0;
+}
+.mainView__section__card--skills li > span {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.mainView__section__card__subheader {
+    padding-bottom: 32px;
+    display: block;
+}
+.mainView__section__card__projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 150px);
+    grid-column-gap: 8px;
+    grid-row-gap: 8px;
+    width:100%;
+    height: 100%;
+}
+.mainView__section__card__projects > div {
+    text-align: center;
+    background-color: var(--color1);
+}
+/* .mainView__section__card__projects > div:nth-child(1) { grid-area: 1 / 1 / 2 / 4; }
+.mainView__section__card__projects > div:nth-child(2) { grid-area: 2 / 1 / 3 / 2; }
+.mainView__section__card__projects > div:nth-child(3) { grid-area: 2 / 2 / 3 / 4; }
+.mainView__section__card__projects > div:nth-child(4) { grid-area: 3 / 1 / 4 / 3; }
+.mainView__section__card__projects > div:nth-child(5) { grid-area: 3 / 3 / 4 / 4; }
+.mainView__section__card__projects > div:nth-child(6) { grid-area: 4 / 1 / 5 / 2; }
+.mainView__section__card__projects > div:nth-child(7) { grid-area: 4 / 2 / 5 / 4; } */
+.mainView__section__card__projects > div:nth-child(1) { grid-area: 1 / 1 / 2 / 3; }
+.mainView__section__card__projects > div:nth-child(2) { grid-area: 2 / 1 / 3 / 2; }
+.mainView__section__card__projects > div:nth-child(3) { grid-area: 2 / 2 / 3 / 3; }
+.mainView__section__card__projects > div:nth-child(4) { grid-area: 3 / 1 / 4 / 3; }
+.mainView__section__card__projects > div:nth-child(5) { grid-area: 4 / 1 / 5 / 2; }
+.mainView__section__card__projects > div:nth-child(6) { grid-area: 4 / 2 / 5 / 3; }
+.mainView__section__card__projects > div:nth-child(7) { grid-area: 5 / 1 / 6 / 3; }
+
 .mainView__section__img {
     width:60%;
     border-radius: 50%;
@@ -168,12 +228,29 @@ body{
 .mainView__section__img:nth-child(2) {
     border-color: var(--color1);
 }
+.mainView__section__img--me {
+    border-radius: 0%;
+    border: var(--borderWidth) solid var(--color2);
+    width:100%;
+    float:none;
+    margin: 0 0 20px 0;
+}
+.mainView__section__img--skills {
+    height: 24px;
+    margin: 4px;
+    cursor: pointer;
+}
 
 p{
     text-align: justify;
 }
 
 @media screen and (min-width: 768px){
+    
+    body{
+        font-size: 20px;
+    }
+
     .wrapper {
         display: flex;
         flex-direction: row;
@@ -207,7 +284,6 @@ p{
     }
 
     .mainView__section__header{
-        font-size: 2rem;
         padding: 32px;
     }
 }
@@ -215,5 +291,18 @@ p{
 @media screen and (min-width: 966px){
     .mainView__section__img {
         width:30%;
+    }
+
+    .mainView__section__img--me {
+        width:25%;
+        float:left;
+        margin: 0 32px 10px 0;
+    }
+}
+
+@media screen and (min-width: 1400px){
+
+    .mainView__section__card--skills {
+        width: 45%;
     }
 }

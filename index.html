@@ -50,7 +50,7 @@
         <div class="mainView">
             <section class="mainView__section" id="home">
                 <header class="mainView__section__header">Frontend Dev fond of schabowy</header>
-                <div class="mainView__section__content-container">
+                <div class="mainView__section__content-container mainView__section__content-container--home">
                     <img src="style/Jakub1.jpg" alt="ja" class="mainView__section__img">
                     <img src="style/Jakub2.jpg" alt="znowu ja" class="mainView__section__img">
                 </div>
@@ -60,18 +60,132 @@
                 <header class="mainView__section__header">About me</header>
                 <div class="mainView__section__content-container">
                     <div class="mainView__section__card">
-                        <p>terefere terefere terefere terefere terefere terefere terefere</p>
+                        <img src="style/Jakub2.jpg" alt="znowu ja" class="mainView__section__img--me">
+                        <p>
+                            terefere terefere terefere terefere terefere terefere terefere naprawdę lubię schabowe
+                            terefere terefere terefere terefere terefere terefere terefere naprawdę lubię schabowe
+                            terefere terefere terefere terefere terefere terefere terefere naprawdę lubię schabowe
+                            terefere terefere terefere terefere terefere terefere terefere naprawdę lubię schabowe
+                            terefere terefere terefere terefere terefere terefere terefere naprawdę lubię schabowe
+                            terefere terefere terefere terefere terefere terefere terefere naprawdę lubię schabowe
+                            terefere terefere terefere terefere terefere terefere terefere naprawdę lubię schabowe
+                        </p>
                     </div>
 
-                    <div class="mainView__section__card">
+                    <!-- <div class="mainView__section__card">
                         <p>terefere terefere terefere terefere terefere terefere terefere</p>
-                    </div>
+                    </div> -->
                 </div>
             </section>
 
             <section class="mainView__section" id="experience">
                 <header class="mainView__section__header">Experience</header>
-                <div class="mainView__section__card"></div>
+                <div class="mainView__section__content-container">
+                    <div class="mainView__section__card mainView__section__card--skills">
+                        <span class="mainView__section__card__subheader">SKILLS NOW</span>
+                        <ul>
+                            <li>
+                                <span>Frontend</span><span>
+                                    <img src="style/skills-angular.svg" alt="Angular" class="mainView__section__img--skills">
+                                    <div class="tooltip">Angular</div>
+                                    <img src="style/skills-angularjs.svg" alt="AngularJs" class="mainView__section__img--skills">
+                                    <div class="tooltip">AngularJS</div>
+                                    <img src="style/skills-ts.svg" alt="TypeScript" class="mainView__section__img--skills">
+                                    <div class="tooltip">TypeScript</div>
+                                    <img src="style/skills-js.svg" alt="JavaScript" class="mainView__section__img--skills">
+                                    <div class="tooltip">JavaScript</div>
+                                    <img src="style/skills-md.svg" alt="Material Design" class="mainView__section__img--skills">
+                                    <div class="tooltip">Material Design</div>
+                                    <img src="style/skills-css.svg" alt="CSS" class="mainView__section__img--skills">
+                                    <div class="tooltip">CSS</div>
+                                </span>
+                            </li>
+                            <li>
+                                <span>Backend</span><span>
+                                    <img src="style/skills-php.svg" alt="PHP" class="mainView__section__img--skills">
+                                    <div class="tooltip">PHP</div>
+                                </span>
+                            </li>
+                            <li>
+                                <span>Databases</span><span>
+                                    <img src="style/skills-mysql.svg" alt="MySql/MariaDB" class="mainView__section__img--skills">
+                                    <div class="tooltip">MySQL MariaDB</div>
+                                    <img src="style/skills-psql.svg" alt="Postresql" class="mainView__section__img--skills">
+                                    <div class="tooltip">PostgreSQL</div>
+                                </span>
+                            </li>
+                            <li>
+                                <span>Technologies</span><span>
+                                    <img src="style/skills-vsc.svg" alt="Visual Studio Code" class="mainView__section__img--skills">
+                                    <div class="tooltip">VS Code</div>
+                                    <img src="style/skills-github.svg" alt="GitHub" class="mainView__section__img--skills">
+                                    <div class="tooltip">GitHub</div>
+                                    <img src="style/skills-json.svg" alt="JSON" class="mainView__section__img--skills">
+                                    <div class="tooltip">JSON</div>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mainView__section__card mainView__section__card--skills">
+                        <span class="mainView__section__card__subheader">SKILLS FORGOTTEN LONG LONG AGO IN THE BEFORTIME</span>
+                        <ul>
+                            <li>
+                                <span>Programming</span><span>
+                                    <img src="style/oldskills-java.svg" alt="Java" class="mainView__section__img--skills">
+                                    <div class="tooltip">Java</div>
+                                    <img src="style/oldskills-cpp.svg" alt="C++" class="mainView__section__img--skills">
+                                    <div class="tooltip">C++</div>
+                                    <img src="style/oldskills-c.svg" alt="C" class="mainView__section__img--skills">
+                                    <div class="tooltip">C</div>
+                                </span>
+                            </li>
+                            <li>
+                                <span>Front/backend</span><span>                                
+                                    <img src="style/oldskills-jsp.svg" alt="JSP" class="mainView__section__img--skills">
+                                    <div class="tooltip">Java Servlet Pages</div>
+                                    <img src="style/oldskills-spring.svg" alt="Spring Framework" class="mainView__section__img--skills">
+                                    <div class="tooltip">Spring Framework</div>
+                                    <img src="style/oldskills-hibernate.svg" alt="Hibernate" class="mainView__section__img--skills">
+                                    <div class="tooltip">Hibernate</div>
+                                    <img src="style/oldskills-smarty.png" alt="PHP Smarty" class="mainView__section__img--skills">
+                                    <div class="tooltip">PHP Smarty</div>
+                                    <img src="style/oldskills-jquery.svg" alt="jQuery" class="mainView__section__img--skills">
+                                    <div class="tooltip">jQuery</div>
+                                    <img src="style/oldskills-bootstrap.svg" alt="Bootstrap" class="mainView__section__img--skills">
+                                    <div class="tooltip">Bootstrap</div>
+                                </span>
+                            </li>
+                            <li>
+                                <span>Databases</span><span>
+                                    <img src="style/oldskills-oracle.svg" alt="Oracle DB" class="mainView__section__img--skills">
+                                    <div class="tooltip">Oracle DB</div>                                
+                                </span>
+                            </li>
+                            <li>
+                                <span>Technologies</span><span>
+                                    <img src="style/oldskills-eclipse.svg" alt="Eclipse IDE" class="mainView__section__img--skills">
+                                    <div class="tooltip">Eclipse IDE</div>
+                                    <img src="style/oldskills-svn.svg" alt="SVN" class="mainView__section__img--skills">
+                                    <div class="tooltip">SVN</div>                                    
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mainView__section__card mainView__section__card--portfolio">
+                        <span class="mainView__section__card__subheader">SELECTED PROJECTS</span>
+                        <div class="mainView__section__card__projects">
+                            <div>PlanThisSh!t</div>
+                            <div>Cyklistator</div>
+                            <div>BlendWax</div>
+                            <div>SnapshotNiugini</div>
+                            <div>BartNapierala</div>
+                            <div>Bakajana</div>
+                            <div>Atlas</div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section class="mainView__section" id="contact">
