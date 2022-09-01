@@ -120,6 +120,7 @@ ul {
 .mainView__section__img--skills:hover + .tooltip {
     margin-top: 0px;
     margin-left: -108px;
+    left:0;
 }
 .navigation__btn--menu {
     border-radius: 50% 0 0 0;
@@ -186,6 +187,7 @@ ul {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    position: relative;
 }
 
 .mainView__section__card__subheader {
