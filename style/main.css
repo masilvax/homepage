@@ -1,5 +1,5 @@
 :root {
-    --borderWidth:8px;
+    --borderWidth:2px;
     --color1:#a801a8;
     --color2:#3fbdbd;
 }
@@ -83,6 +83,7 @@ body{
     height: 56px;
     display: block;/* <a> też z tego korzysta */
     transition: background-color .3s ease-in-out;
+    color: black;
 }
 .navigation__btn:hover {
     border: var(--borderWidth) solid var(--color2);
