@@ -1,7 +1,23 @@
 const toggleMenuBtn = document.getElementById("toggleMenuBtn");
 const navigation = document.getElementById('navigation');
+const loader = document.getElementById('loader');
 const sections = document.getElementsByClassName('navigation__li');
 var isMenuOpend = (window.innerWidth > 768) ? true : false;
+var isBgImageLoaded = false;
+var image = new Image();
+image.src = getBgUrl(document.getElementById('body'));
+image.onload = function () {
+    console.log('Loaded!');
+    //loader.style.setProperty('width','0')
+    //loader.style.setProperty('height','0')
+    loader.style.setProperty('animation', 'close-loader .5s linear 1s 1 forwards');
+    setTimeout(() => { loader.parentElement.style.setProperty('opacity', '0'); }, 1500);
+    setTimeout(() => { loader.parentElement.style.setProperty('display', 'none'); }, 1800);
+};
+function getBgUrl(el) {
+    let url = document.defaultView.getComputedStyle(el, "").backgroundImage;
+    return url.replace(/url\(['"]?(.*?)['"]?\)/i, "$1");
+}
 window.onresize = () => {
     isMenuOpend = (window.innerWidth > 768) ? false : true; //odwrotnie, bo niżej toggle'uje menu
     toggleMenu();
