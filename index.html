@@ -12,25 +12,30 @@
     </style>
 </head>
 <body id="body">
+
+    <div class="loader-wrapper" id="loader-wrapper">
+        <div class="loader" id="loader"><span>LOADING...</span></div>
+    </div>
+
     <div class="wrapper">
         <nav class="navigation" id="navigation">
             <ul class="navigation__ul">
-                <li class="navigation__li" data-dest="home">Home</li>
-                <li class="navigation__li" data-dest="about">About Me</li>
-                <li class="navigation__li" data-dest="experience">Experience</li>
-                <li class="navigation__li" data-dest="contact">Contact</li>
+                <li class="navigation__li" data-dest="home"><a>Home</a></li>
+                <li class="navigation__li" data-dest="about"><a>About Me</a></li>
+                <li class="navigation__li" data-dest="experience"><a>Experience</a></li>
+                <li class="navigation__li" data-dest="contact"><a>Contact</a></li>
             </ul>
             <ul class="navigation__ul navigation__ul--toolbar">
                 <li class="navigation__li--toolbar">
                     <a class="navigation__btn" href="https://www.linkedin.com/in/jakub-bartek-a908386/" target="_blank">
                         <div class="tooltip">LinkedIn</div>
-                        <img class="navigation__icon-img" src="style/linkedin-svgrepo-com.svg" alt="LinkedIn"/>
+                        <img class="navigation__icon-img" width="22" height="22" src="style/linkedin-svgrepo-com.svg" alt="LinkedIn"/>
                     </a>
                 </li>
                 <li class="navigation__li--toolbar">
                     <a class="navigation__btn" href="https://github.com/masilvax" target="_blank">
                         <div class="tooltip">GitHub</div>
-                        <img class="navigation__icon-img" src="style/github-svgrepo-com.svg" alt="Git"/>
+                        <img class="navigation__icon-img" width="22" height="22" src="style/github-svgrepo-com.svg" alt="Git"/>
                     </a>
                 </li>
                 <li class="navigation__li--toolbar">
@@ -51,8 +56,8 @@
             <section class="mainView__section" id="home">
                 <header class="mainView__header">Frontend Dev fond of schabowy</header>
                 <div class="mainView__content-container mainView__content-container--home">
-                    <img src="style/Jakub1.jpg" alt="ja" class="mainView__img--home">
-                    <img src="style/Jakub2.jpg" alt="znowu ja" class="mainView__img--home">
+                    <img src="style/Jakub1.jpg" width="5" height="5" alt="ja" class="mainView__img--home">
+                    <img src="style/Jakub2.jpg" width="5" height="5" alt="znowu ja" class="mainView__img--home">
                 </div>
             </section>
 
@@ -60,7 +65,7 @@
                 <header class="mainView__header">About me</header>
                 <div class="mainView__content-container">
                     <div class="mainView__card">
-                        <img src="style/Jakub2.jpg" alt="znowu ja" class="mainView__img--me">
+                        <img src="style/Jakub2.jpg" loading="lazy" width="5" height="5" alt="znowu ja" class="mainView__img--me">
                         <p>
                             terefere terefere terefere terefere terefere terefere terefere naprawdę lubię schabowe
                             terefere terefere terefere terefere terefere terefere terefere naprawdę lubię schabowe
@@ -82,41 +87,41 @@
                         <ul>
                             <li>
                                 <span>Frontend</span><span>
-                                    <img src="style/skills-angular.svg" alt="Angular" class="mainView__img--skills">
+                                    <img src="style/skills-angular.svg" loading="lazy" width="24" height="24" alt="Angular" class="mainView__img--skills">
                                     <div class="tooltip">Angular</div>
-                                    <img src="style/skills-angularjs.svg" alt="AngularJs" class="mainView__img--skills">
+                                    <img src="style/skills-angularjs.svg" loading="lazy" width="24" height="24" alt="AngularJs" class="mainView__img--skills">
                                     <div class="tooltip">AngularJS</div>
-                                    <img src="style/skills-ts.svg" alt="TypeScript" class="mainView__img--skills">
+                                    <img src="style/skills-ts.svg" loading="lazy" width="24" height="24" alt="TypeScript" class="mainView__img--skills">
                                     <div class="tooltip">TypeScript</div>
-                                    <img src="style/skills-js.svg" alt="JavaScript" class="mainView__img--skills">
+                                    <img src="style/skills-js.svg" loading="lazy" width="24" height="24" alt="JavaScript" class="mainView__img--skills">
                                     <div class="tooltip">JavaScript</div>
-                                    <img src="style/skills-md.svg" alt="Material Design" class="mainView__img--skills">
+                                    <img src="style/skills-md.svg" loading="lazy" width="24" height="24" alt="Material Design" class="mainView__img--skills">
                                     <div class="tooltip">Material Design</div>
-                                    <img src="style/skills-css.svg" alt="CSS" class="mainView__img--skills">
+                                    <img src="style/skills-css.svg" loading="lazy" width="24" height="24" alt="CSS" class="mainView__img--skills">
                                     <div class="tooltip">CSS</div>
                                 </span>
                             </li>
                             <li>
                                 <span>Backend</span><span>
-                                    <img src="style/skills-php.svg" alt="PHP" class="mainView__img--skills">
+                                    <img src="style/skills-php.svg" loading="lazy" width="24" height="24" alt="PHP" class="mainView__img--skills">
                                     <div class="tooltip">PHP</div>
                                 </span>
                             </li>
                             <li>
                                 <span>Databases</span><span>
-                                    <img src="style/skills-mysql.svg" alt="MySql/MariaDB" class="mainView__img--skills">
+                                    <img src="style/skills-mysql.svg" loading="lazy" width="24" height="24" alt="MySql/MariaDB" class="mainView__img--skills">
                                     <div class="tooltip">MySQL MariaDB</div>
-                                    <img src="style/skills-psql.svg" alt="Postresql" class="mainView__img--skills">
+                                    <img src="style/skills-psql.svg" loading="lazy" width="24" height="24" alt="Postresql" class="mainView__img--skills">
                                     <div class="tooltip">PostgreSQL</div>
                                 </span>
                             </li>
                             <li>
                                 <span>Technologies</span><span>
-                                    <img src="style/skills-vsc.svg" alt="Visual Studio Code" class="mainView__img--skills">
+                                    <img src="style/skills-vsc.svg" loading="lazy" width="24" height="24" alt="Visual Studio Code" class="mainView__img--skills">
                                     <div class="tooltip">VS Code</div>
-                                    <img src="style/skills-github.svg" alt="GitHub" class="mainView__img--skills">
+                                    <img src="style/skills-github.svg" loading="lazy" width="24" height="24" alt="GitHub" class="mainView__img--skills">
                                     <div class="tooltip">GitHub</div>
-                                    <img src="style/skills-json.svg" alt="JSON" class="mainView__img--skills">
+                                    <img src="style/skills-json.svg" loading="lazy" width="24" height="24" alt="JSON" class="mainView__img--skills">
                                     <div class="tooltip">JSON</div>
                                 </span>
                             </li>
@@ -128,41 +133,41 @@
                         <ul>
                             <li>
                                 <span>Programming</span><span>
-                                    <img src="style/oldskills-java.svg" alt="Java" class="mainView__img--skills">
+                                    <img src="style/oldskills-java.svg" loading="lazy" width="24" height="24" alt="Java" class="mainView__img--skills">
                                     <div class="tooltip">Java</div>
-                                    <img src="style/oldskills-cpp.svg" alt="C++" class="mainView__img--skills">
+                                    <img src="style/oldskills-cpp.svg" loading="lazy" width="24" height="24" alt="C++" class="mainView__img--skills">
                                     <div class="tooltip">C++</div>
-                                    <img src="style/oldskills-c.svg" alt="C" class="mainView__img--skills">
+                                    <img src="style/oldskills-c.svg" loading="lazy" width="24" height="24" alt="C" class="mainView__img--skills">
                                     <div class="tooltip">C</div>
                                 </span>
                             </li>
                             <li>
                                 <span>Front/backend</span><span>                                
-                                    <img src="style/oldskills-jsp.svg" alt="JSP" class="mainView__img--skills">
+                                    <img src="style/oldskills-jsp.svg" loading="lazy" width="24" height="24" alt="JSP" class="mainView__img--skills">
                                     <div class="tooltip">Java Servlet Pages</div>
-                                    <img src="style/oldskills-spring.svg" alt="Spring Framework" class="mainView__img--skills">
+                                    <img src="style/oldskills-spring.svg" loading="lazy" width="24" height="24" alt="Spring Framework" class="mainView__img--skills">
                                     <div class="tooltip">Spring Framework</div>
-                                    <img src="style/oldskills-hibernate.svg" alt="Hibernate" class="mainView__img--skills">
+                                    <img src="style/oldskills-hibernate.svg" loading="lazy" width="24" height="24" alt="Hibernate" class="mainView__img--skills">
                                     <div class="tooltip">Hibernate</div>
-                                    <img src="style/oldskills-smarty.png" alt="PHP Smarty" class="mainView__img--skills">
+                                    <img src="style/oldskills-smarty.png" loading="lazy" width="24" height="24" alt="PHP Smarty" class="mainView__img--skills">
                                     <div class="tooltip">PHP Smarty</div>
-                                    <img src="style/oldskills-jquery.svg" alt="jQuery" class="mainView__img--skills">
+                                    <img src="style/oldskills-jquery.svg" loading="lazy" width="24" height="24" alt="jQuery" class="mainView__img--skills">
                                     <div class="tooltip">jQuery</div>
-                                    <img src="style/oldskills-bootstrap.svg" alt="Bootstrap" class="mainView__img--skills">
+                                    <img src="style/oldskills-bootstrap.svg" loading="lazy" width="24" height="24" alt="Bootstrap" class="mainView__img--skills">
                                     <div class="tooltip">Bootstrap</div>
                                 </span>
                             </li>
                             <li>
                                 <span>Databases</span><span>
-                                    <img src="style/oldskills-oracle.svg" alt="Oracle DB" class="mainView__img--skills">
+                                    <img src="style/oldskills-oracle.svg" loading="lazy" width="24" height="24" alt="Oracle DB" class="mainView__img--skills">
                                     <div class="tooltip">Oracle DB</div>                                
                                 </span>
                             </li>
                             <li>
                                 <span>Technologies</span><span>
-                                    <img src="style/oldskills-eclipse.svg" alt="Eclipse IDE" class="mainView__img--skills">
+                                    <img src="style/oldskills-eclipse.svg" loading="lazy" width="24" height="24" alt="Eclipse IDE" class="mainView__img--skills">
                                     <div class="tooltip">Eclipse IDE</div>
-                                    <img src="style/oldskills-svn.svg" alt="SVN" class="mainView__img--skills">
+                                    <img src="style/oldskills-svn.svg" loading="lazy" width="24" height="24" alt="SVN" class="mainView__img--skills">
                                     <div class="tooltip">SVN</div>                                    
                                 </span>
                             </li>
@@ -188,10 +193,6 @@
                 <header class="mainView__header">Contact</header>
             </section>
         </div>
-    </div>
-    
-    <div class="loader-wrapper" id="loader-wrapper">
-        <div class="loader" id="loader"><span>LOADING...</span></div>
     </div>
 
     <script src="dist/app.js"></script>
