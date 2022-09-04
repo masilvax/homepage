@@ -49,21 +49,36 @@ window.onresize = () => {
 const sections = document.getElementsByClassName('navigation__li');
 Array.from(sections).forEach((v) => {
     v.addEventListener('click', () => {
-        const el = document.getElementById(v.getAttribute('data-dest'));
+        const el = document.getElementById(v.getAttribute('data-dest')); //Property 'dataset' does not exist on type 'Element' 
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         if (window.innerWidth <= 768)
             toggleMenu();
     });
 });
-/* Portfolio */
+/* Selected projects - filling from array, opening modal dialog with specified project (also next & previous) */
+const projectDetailsModal = document.getElementById('project-details');
+const projectDetailsCloseBtn = document.getElementById('project-details__close-btn');
+projectDetailsCloseBtn.addEventListener('click', () => {
+    projectDetailsModal.style.setProperty('display', 'none');
+});
+const projectDetailsNextBtn = document.getElementById('project-details__next-btn');
+projectDetailsNextBtn.addEventListener('click', (e) => {
+    openModal(e.target.dataset.name);
+});
+const projectDetailsPreviousBtn = document.getElementById('project-details__previous-btn');
+projectDetailsPreviousBtn.addEventListener('click', (e) => {
+    openModal(e.target.dataset.name);
+    console.log('ewszłem');
+});
 const projectsEl = document.getElementById('mainView__projects');
+// Adding a project also remember to make change in css grid!!
 const projects = [
     { name: 'planthissh!t', description: 'Webapp for creating workout schedules.', url: 'terefere', imgSrc: 'style/skills-ts.svg' },
-    { name: 'cyklisci', description: 'do kolazy', url: 'terefere', imgSrc: 'style/oldskills-eclipse.svg' },
+    { name: 'cyklisci', description: 'do kolazy', url: 'terefere', imgSrc: 'style/skills-js.svg' },
     { name: 'blendwax', description: 'do djki', url: 'terefere', imgSrc: 'style/oldskills-eclipse.svg' },
     { name: 'SnapshotNiugini', description: 'do treningu', url: 'terefere', imgSrc: 'style/oldskills-eclipse.svg' },
-    { name: 'Bakajana', description: 'do treningu', url: 'terefere', imgSrc: 'style/oldskills-eclipse.svg' },
-    { name: 'BartNapierala', description: 'do treningu', url: 'terefere', imgSrc: 'style/oldskills-eclipse.svg' },
+    { name: 'Bakajana', description: 'do treningu', url: 'terefere', imgSrc: 'style/oldskills-java.svg' },
+    { name: 'BartNapierala', description: 'do treningu', url: 'terefere', imgSrc: 'style/oldskills-svn.svg' },
     { name: 'Atlas', description: 'do treningu', url: 'terefere', imgSrc: 'style/oldskills-eclipse.svg' },
 ];
 projects.forEach((v) => {
@@ -73,13 +88,44 @@ projects.forEach((v) => {
     img.loading = 'lazy';
     img.className = 'mainView__project-img';
     projDiv.appendChild(img);
-    /*
-        const name:HTMLElement = document.createElement('div')
-        name.innerHTML = v.name
-        projDiv.appendChild(name) */
     const description = document.createElement('div');
-    description.className = 'mainView__project-desc';
-    description.innerHTML = `<span class="mainView__project-title">${v.name}</span><span>${v.description}</span>`;
+    description.className = 'mainView__project-info';
+    description.innerHTML = `<span class="mainView__project-title">${v.name}</span><span class="mainView__project-desc">${v.description}</span>`;
     projDiv.appendChild(description);
+    const bigTransparentButtonCovering = document.createElement('div');
+    bigTransparentButtonCovering.className = 'mainView__project-btn';
+    bigTransparentButtonCovering.dataset.name = v.name;
+    projDiv.appendChild(bigTransparentButtonCovering);
     projectsEl.appendChild(projDiv);
+    bigTransparentButtonCovering.addEventListener('click', (e) => {
+        console.log(e.target.dataset.name);
+        openModal(e.target.dataset.name);
+    });
 });
+function openModal(title) {
+    projectDetailsModal.style.setProperty('display', 'block');
+    let titleEl = document.getElementById('project-details__title');
+    let descEl = document.getElementById('project-details__desc');
+    let urlEl = document.getElementById('project-details__url');
+    let imgEl = document.getElementById('project-details__img');
+    projects.forEach((v, i) => {
+        if (v.name === title) {
+            if (i == projects.length - 1) {
+                projectDetailsNextBtn.dataset.name = projects[0].name;
+                projectDetailsPreviousBtn.dataset.name = projects[i - 1].name;
+            }
+            else if (i == 0) {
+                projectDetailsNextBtn.dataset.name = projects[i + 1].name;
+                projectDetailsPreviousBtn.dataset.name = projects[projects.length - 1].name;
+            }
+            else {
+                projectDetailsNextBtn.dataset.name = projects[i + 1].name;
+                projectDetailsPreviousBtn.dataset.name = projects[i - 1].name;
+            }
+            titleEl.innerHTML = v.name;
+            descEl.innerHTML = v.description;
+            urlEl.innerHTML = v.url;
+            imgEl.src = v.imgSrc;
+        }
+    });
+}

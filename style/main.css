@@ -76,7 +76,72 @@ body {
     }
 }
 
-.wrapper {
+.project-details {
+    display: none;
+    background-color: red;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+.project-details__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-top: var(--borderWidth) solid var(--color2);
+    border-bottom: var(--borderWidth) solid var(--color2);
+    height: 100%;
+}
+.project-details__title {
+    height: 56px;
+    border-bottom: var(--borderWidth) solid var(--color2);
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+}
+.project-details__info {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.project-details__close-btn {
+    position: absolute;
+    top:0px;
+    right: 0px;
+    width: 56px;
+    height: 56px;
+    background-color: transparent;
+    border:none;
+    border-left: var(--borderWidth) solid var(--color2);
+}
+.project-details__img {
+    max-height: 87vh;
+    max-width: 75vh;
+    width: 100%;
+    border: var(--borderWidth) solid var(--color2);
+}
+.project-details__next-btn, .project-details__previous-btn {
+    width: 56px;
+    height: 56px;
+    border: none;
+    border-bottom: var(--borderWidth) solid var(--color2);
+    border-top: var(--borderWidth) solid var(--color2);
+    background-color: transparent;
+}
+.project-details__url {
+    flex-grow: 1;
+    padding: 12px;
+    border: var(--borderWidth) solid var(--color2);
+}
+.project-details__desc {
+    width: 100%;
+    padding: 12px;
+}
+
+.wrapper {/* main wrapper */
     display: flex;
     overflow: hidden;
     flex-direction: row-reverse;
@@ -251,14 +316,14 @@ ul {
 }
 
 .mainView__subheader {
-    padding-bottom: 32px;
+    padding-bottom: 16px;
     display: block;
     text-transform: uppercase;
 }
 .mainView__projects {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 150px);
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(8, 150px);
     grid-column-gap: 8px;
     grid-row-gap: 8px;
     width:100%;
@@ -266,9 +331,12 @@ ul {
 }
 .mainView__projects > div {
     display: flex;
+    flex-direction: column;
     justify-content: start;
     align-items: center;
     background-color: rgba(0,0,0,.3);
+    position: relative;
+    cursor: pointer;
 }
 /* .mainView__section__card__projects > div:nth-child(1) { grid-area: 1 / 1 / 2 / 4; }
 .mainView__section__card__projects > div:nth-child(2) { grid-area: 2 / 1 / 3 / 2; }
@@ -285,11 +353,11 @@ ul {
 .mainView__projects > div:nth-child(6) { grid-area: 4 / 2 / 5 / 3; }
 .mainView__projects > div:nth-child(7) { grid-area: 5 / 1 / 6 / 3; } */
 .mainView__project-img {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
 }
-.mainView__project-desc {
-    padding:24px;
+.mainView__project-info {
+    padding:12px 0 0;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -299,6 +367,17 @@ ul {
 }
 .mainView__project-title {
     padding-bottom: 8px;
+}
+.mainView__project-desc {
+    display: none;
+}
+.mainView__project-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
 }
 
 .mainView__img--home {
@@ -327,6 +406,32 @@ ul {
 
 p{
     text-align: justify;
+}
+
+@media screen and (min-width: 576px){
+    .mainView__projects {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(8, 100px);
+        grid-column-gap: 8px;
+        grid-row-gap: 8px;
+        width:100%;
+        height: 100%;
+    }
+    .mainView__projects > div {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
+        background-color: rgba(0,0,0,.3);
+    }
+    .mainView__project-desc {
+        display: block;
+    }
+
+    .mainView__project-info {
+        padding:24px;
+    }
 }
 
 @media screen and (min-width: 768px){
@@ -369,6 +474,16 @@ p{
     .mainView__header{
         padding: 32px;
     }
+
+    .mainView__projects {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(8, 150px);
+    }
+
+    .mainView__project-img {
+        width: 150px;
+        height: 150px;
+    }
 }
 
 @media screen and (min-width: 966px){
@@ -387,5 +502,10 @@ p{
 
     .mainView__card--skills {
         width: 48%;
+    }
+
+    .mainView__projects {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 150px);
     }
 }

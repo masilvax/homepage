@@ -13,10 +13,6 @@
 </head>
 <body id="body">
 
-    <div class="loader-wrapper" id="loader-wrapper">
-        <div class="loader" id="loader"><span>LOADING...</span></div>
-    </div>
-
     <div class="wrapper">
         <nav class="navigation" id="navigation">
             <ul class="navigation__ul">
@@ -177,7 +173,6 @@
                     <div class="mainView__card mainView__card--portfolio">
                         <span class="mainView__subheader">SELECTED PROJECTS</span>
                         <div class="mainView__projects" id="mainView__projects">
-                            <div>PlanThisSh!t</div>
                             <!-- <div>Cyklistator</div>
                             <div>BlendWax</div>
                             <div>SnapshotNiugini</div>
@@ -193,6 +188,35 @@
                 <header class="mainView__header">Contact</header>
             </section>
         </div>
+    </div>
+
+    <div class="project-details" id="project-details">
+        <div class="project-details__main">
+            <div class="project-details__title" id="project-details__title"></div>
+            <img class="project-details__img" id="project-details__img">
+            <div class="project-details__info">
+
+                <button class="project-details__previous-btn" id="project-details__previous-btn" aria-label="...">
+                    <span class="material-icons">menu</span>
+                </button>
+                <div class="project-details__url" id="project-details__url"></div>
+                
+                <button class="project-details__next-btn material-icons" id="project-details__next-btn" aria-label="...">
+                    close<span>tere</span>
+                </button>
+
+                <div class="project-details__desc" id="project-details__desc"></div>
+                
+            </div>
+        </div>
+        <button class="project-details__close-btn" id="project-details__close-btn" aria-label="...">
+            <span class="material-icons">close</span>
+        </button>
+        
+    </div>
+
+    <div class="loader-wrapper" id="loader-wrapper">
+        <div class="loader" id="loader"><span>LOADING...</span></div>
     </div>
 
     <script src="dist/app.js"></script>
