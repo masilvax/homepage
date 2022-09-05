@@ -63,18 +63,18 @@ Array.from(sections).forEach((v)=>{
 /* Selected projects - filling from array, opening modal dialog with specified project (also next & previous) */
 const projectDetailsModal:HTMLElement = document.getElementById('project-details')
 
-const projectDetailsCloseBtn:HTMLButtonElement = document.getElementById('project-details__close-btn') as HTMLButtonElement
-projectDetailsCloseBtn.addEventListener('click', ()=>{
+const closeBtn:HTMLButtonElement = document.getElementById('project-details__close-btn') as HTMLButtonElement
+closeBtn.addEventListener('click', ()=>{
     projectDetailsModal.style.setProperty('display','none')
 })
 
-const projectDetailsNextBtn:HTMLButtonElement = document.getElementById('project-details__next-btn') as HTMLButtonElement
-projectDetailsNextBtn.addEventListener('click',(e:any)=>{
+const nextBtn:HTMLButtonElement = document.getElementById('project-details__next-btn') as HTMLButtonElement
+nextBtn.addEventListener('click',(e:any)=>{
     openModal(e.target.dataset.name)
 })
 
-const projectDetailsPreviousBtn:HTMLButtonElement = document.getElementById('project-details__previous-btn') as HTMLButtonElement
-projectDetailsPreviousBtn.addEventListener('click',(e:any)=>{
+const previousBtn:HTMLButtonElement = document.getElementById('project-details__previous-btn') as HTMLButtonElement
+previousBtn.addEventListener('click',(e:any)=>{
     openModal(e.target.dataset.name)
 })
 
@@ -123,6 +123,7 @@ projects.forEach((v) => {
 })
 
 function openModal(title:string):void {
+    console.log(nextBtn.children[0]);
 
     projectDetailsModal.style.setProperty('display','block')
 
@@ -134,14 +135,20 @@ function openModal(title:string):void {
     projects.forEach((v,i)=>{
         if (v.name === title) {
           if (i == projects.length - 1) {
-            projectDetailsNextBtn.dataset.name = projects[0].name;
-            projectDetailsPreviousBtn.dataset.name = projects[i - 1].name;
+            nextBtn.dataset.name = projects[0].name;
+            nextBtn.children[0].setAttribute('data-name',projects[0].name)
+            previousBtn.dataset.name = projects[i - 1].name;
+            previousBtn.children[0].setAttribute('data-name',projects[i - 1].name)
           } else if (i == 0) {
-            projectDetailsNextBtn.dataset.name = projects[i + 1].name;
-            projectDetailsPreviousBtn.dataset.name = projects[projects.length - 1].name;
+            nextBtn.dataset.name = projects[i + 1].name;
+            nextBtn.children[0].setAttribute('data-name',projects[i + 1].name)
+            previousBtn.dataset.name = projects[projects.length - 1].name;
+            previousBtn.children[0].setAttribute('data-name',projects[projects.length - 1].name)
           } else {
-            projectDetailsNextBtn.dataset.name = projects[i + 1].name;
-            projectDetailsPreviousBtn.dataset.name = projects[i - 1].name;
+            nextBtn.dataset.name = projects[i + 1].name;
+            nextBtn.children[0].setAttribute('data-name',projects[i + 1].name)
+            previousBtn.dataset.name = projects[i - 1].name;
+            previousBtn.children[0].setAttribute('data-name',projects[i - 1].name)
           }
 
           titleEl.innerHTML = v.name;

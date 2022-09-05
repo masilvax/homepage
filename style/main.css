@@ -78,26 +78,26 @@ body {
 
 .project-details {
     display: none;
-    background-color: red;
+    backdrop-filter:blur(50px);
+    -webkit-backdrop-filter:blur(50px);
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     z-index: 1;
+    color: var(--color2);
 }
 .project-details__main {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    border-top: var(--borderWidth) solid var(--color2);
-    border-bottom: var(--borderWidth) solid var(--color2);
     height: 100%;
 }
 .project-details__title {
     height: 56px;
-    border-bottom: var(--borderWidth) solid var(--color2);
+    border-bottom: var(--borderWidth) solid var(--color1);
     width: 100%;
     text-align: center;
     padding: 12px;
@@ -107,34 +107,37 @@ body {
     flex-wrap: wrap;
     width: 100%;
 }
-.project-details__close-btn {
+.project-details__btn {
+    width: 56px;
+    height: 56px;
+    border: none;
+    background-color: transparent;
+    color: var(--color2);
+    cursor: pointer;
+}
+.project-details__btn--close {
     position: absolute;
     top:0px;
     right: 0px;
-    width: 56px;
-    height: 56px;
-    background-color: transparent;
-    border:none;
-    border-left: var(--borderWidth) solid var(--color2);
+    border-left: var(--borderWidth) solid var(--color1);
+}
+.project-details__btn--nav {
+    border-top: var(--borderWidth) solid var(--color1);
+}
+.project-details__btn--nav span {
+    color: var(--color2);
 }
 .project-details__img {
     max-height: 87vh;
     max-width: 75vh;
     width: 100%;
-    border: var(--borderWidth) solid var(--color2);
-}
-.project-details__next-btn, .project-details__previous-btn {
-    width: 56px;
-    height: 56px;
-    border: none;
-    border-bottom: var(--borderWidth) solid var(--color2);
-    border-top: var(--borderWidth) solid var(--color2);
-    background-color: transparent;
+    border: var(--borderWidth) solid var(--color1);
 }
 .project-details__url {
     flex-grow: 1;
     padding: 12px;
-    border: var(--borderWidth) solid var(--color2);
+    border: var(--borderWidth) solid var(--color1);
+    border-bottom: none;
 }
 .project-details__desc {
     width: 100%;

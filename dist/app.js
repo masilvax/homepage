@@ -57,18 +57,17 @@ Array.from(sections).forEach((v) => {
 });
 /* Selected projects - filling from array, opening modal dialog with specified project (also next & previous) */
 const projectDetailsModal = document.getElementById('project-details');
-const projectDetailsCloseBtn = document.getElementById('project-details__close-btn');
-projectDetailsCloseBtn.addEventListener('click', () => {
+const closeBtn = document.getElementById('project-details__close-btn');
+closeBtn.addEventListener('click', () => {
     projectDetailsModal.style.setProperty('display', 'none');
 });
-const projectDetailsNextBtn = document.getElementById('project-details__next-btn');
-projectDetailsNextBtn.addEventListener('click', (e) => {
+const nextBtn = document.getElementById('project-details__next-btn');
+nextBtn.addEventListener('click', (e) => {
     openModal(e.target.dataset.name);
 });
-const projectDetailsPreviousBtn = document.getElementById('project-details__previous-btn');
-projectDetailsPreviousBtn.addEventListener('click', (e) => {
+const previousBtn = document.getElementById('project-details__previous-btn');
+previousBtn.addEventListener('click', (e) => {
     openModal(e.target.dataset.name);
-    console.log('ewszłem');
 });
 const projectsEl = document.getElementById('mainView__projects');
 // Adding a project also remember to make change in css grid!!
@@ -103,6 +102,7 @@ projects.forEach((v) => {
     });
 });
 function openModal(title) {
+    console.log(nextBtn.children[0]);
     projectDetailsModal.style.setProperty('display', 'block');
     let titleEl = document.getElementById('project-details__title');
     let descEl = document.getElementById('project-details__desc');
@@ -111,16 +111,22 @@ function openModal(title) {
     projects.forEach((v, i) => {
         if (v.name === title) {
             if (i == projects.length - 1) {
-                projectDetailsNextBtn.dataset.name = projects[0].name;
-                projectDetailsPreviousBtn.dataset.name = projects[i - 1].name;
+                nextBtn.dataset.name = projects[0].name;
+                nextBtn.children[0].setAttribute('data-name', projects[0].name);
+                previousBtn.dataset.name = projects[i - 1].name;
+                previousBtn.children[0].setAttribute('data-name', projects[i - 1].name);
             }
             else if (i == 0) {
-                projectDetailsNextBtn.dataset.name = projects[i + 1].name;
-                projectDetailsPreviousBtn.dataset.name = projects[projects.length - 1].name;
+                nextBtn.dataset.name = projects[i + 1].name;
+                nextBtn.children[0].setAttribute('data-name', projects[i + 1].name);
+                previousBtn.dataset.name = projects[projects.length - 1].name;
+                previousBtn.children[0].setAttribute('data-name', projects[projects.length - 1].name);
             }
             else {
-                projectDetailsNextBtn.dataset.name = projects[i + 1].name;
-                projectDetailsPreviousBtn.dataset.name = projects[i - 1].name;
+                nextBtn.dataset.name = projects[i + 1].name;
+                nextBtn.children[0].setAttribute('data-name', projects[i + 1].name);
+                previousBtn.dataset.name = projects[i - 1].name;
+                previousBtn.children[0].setAttribute('data-name', projects[i - 1].name);
             }
             titleEl.innerHTML = v.name;
             descEl.innerHTML = v.description;
