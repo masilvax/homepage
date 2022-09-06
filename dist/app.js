@@ -62,54 +62,57 @@ const projects = [
     {
         name: "PlanThisSh!t",
         url: "http://planthisshit.com",
-        imgSrc: "style/skills-ts.svg",
+        imgSrc: "style/project-planthisshit.jpg",
         description: "Webapp for creating workout schedules. Also for personal trainers.",
     },
     {
         name: "Cyklistator",
         description: "Webapp for creating photo collages.",
         url: "https://serwer1445315.home.pl/cyklisci",
-        imgSrc: "style/skills-js.svg",
+        imgSrc: "style/project-cyklisci.jpg",
     },
     {
         name: "BlendWax",
         description: "Web application for djs who prefer vinyl to other medium.",
         url: "https://serwer1445315.home.pl/blendwax",
-        imgSrc: "style/oldskills-eclipse.svg",
+        imgSrc: "style/project-planthisshit.jpg",
     },
     {
         name: "SnapshotNiugini",
         description: "Travelling blog and catalogue of commercial trips with CMS for a client",
         url: "https://snapshotniugini.com",
-        imgSrc: "style/oldskills-eclipse.svg",
+        imgSrc: "style/project-cyklisci.jpg",
     },
     {
         name: "BartNapierala",
         description: "Static website for a client",
         url: "http://bartnapierala.com",
-        imgSrc: "style/oldskills-svn.svg",
+        imgSrc: "style/project-planthisshit.jpg",
     },
     {
-        name: "Bart's Mother's Atlas",
+        name: "Bart's Mom's Atlas",
         description: "Atlas of regional wildlife with CMS",
         url: "http://bartnapierala.com/atlas",
-        imgSrc: "style/oldskills-eclipse.svg",
+        imgSrc: "style/project-cyklisci.jpg",
     },
     {
         name: "Bakajana",
         description: "Travel agency website with CMS",
         url: "http://bakajana.pl",
-        imgSrc: "style/oldskills-java.svg",
+        imgSrc: "style/project-planthisshit.jpg",
     },
 ];
 // Creating projects card from an array
 projects.forEach(v => {
     const projDiv = document.createElement('div');
+    const imgWrapper = document.createElement('div');
+    imgWrapper.className = 'mainView__project-imgwrpr'; //just for bg-color and mix-blend-mode
     const img = document.createElement('img');
     img.src = v.imgSrc;
     img.loading = 'lazy';
     img.className = 'mainView__project-img';
-    projDiv.appendChild(img);
+    imgWrapper.appendChild(img);
+    projDiv.appendChild(imgWrapper);
     const description = document.createElement('div');
     description.className = 'mainView__project-info';
     description.innerHTML = `<span class="mainView__project-title">${v.name}</span><span class="mainView__project-desc">${v.description}</span>`;
