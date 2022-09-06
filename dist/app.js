@@ -64,42 +64,49 @@ const projects = [
         url: "http://planthisshit.com",
         imgSrc: "style/project-planthisshit.jpg",
         description: "Webapp for creating workout schedules. Also for personal trainers.",
+        stack: 'AngularJS, Material Design, PHP, MySQL',
     },
     {
         name: "Cyklistator",
         description: "Webapp for creating photo collages.",
         url: "https://serwer1445315.home.pl/cyklisci",
         imgSrc: "style/project-cyklisci.jpg",
+        stack: 'Angular, Material Design',
     },
     {
         name: "BlendWax",
         description: "Web application for djs who prefer vinyl to other medium.",
         url: "https://serwer1445315.home.pl/blendwax",
         imgSrc: "style/project-planthisshit.jpg",
+        stack: 'AngularJS, Material Design, PHP, MySQL',
     },
     {
         name: "SnapshotNiugini",
-        description: "Travelling blog and catalogue of commercial trips with CMS for a client",
+        description: "Travelling blog and catalogue of commercial trips with CMS for a client.",
         url: "https://snapshotniugini.com",
         imgSrc: "style/project-cyklisci.jpg",
+        stack: 'AngularJS, Material Design, PHP, MySQL',
     },
     {
         name: "BartNapierala",
-        description: "Static website for a client",
+        description: "Static website for a client.",
         url: "http://bartnapierala.com",
         imgSrc: "style/project-planthisshit.jpg",
+        stack: 'HTML, AngularJS',
     },
     {
         name: "Bart's Mom's Atlas",
-        description: "Atlas of regional wildlife with CMS",
+        description: "Atlas of regional wildlife with CMS.",
         url: "http://bartnapierala.com/atlas",
         imgSrc: "style/project-cyklisci.jpg",
+        stack: 'AngularJS, Material Design, PHP, MySQL',
     },
     {
         name: "Bakajana",
-        description: "Travel agency website with CMS",
+        description: "Travel agency website with CMS.",
         url: "http://bakajana.pl",
         imgSrc: "style/project-planthisshit.jpg",
+        stack: 'AngularJS, Material Design, PHP, MySQL',
     },
 ];
 // Creating projects card from an array
@@ -189,7 +196,7 @@ function openModal(title) {
                 previousBtn.children[0].setAttribute('data-name', projects[i - 1].name);
             }
             titleEl.innerHTML = v.name;
-            descEl.innerHTML = v.description;
+            descEl.innerHTML = v.description + `<br/><span>(Stack: ${v.stack})</span>`;
             urlEl.innerHTML = `<a href="${v.url}" target="_blank">Visit ${v.name}</a>`;
             imgEl.src = v.imgSrc;
         }

@@ -109,6 +109,7 @@ body {
     width: 100%;
     text-align: center;
     padding: 16px;
+    font-weight: 600;
 }
 .project-details__info {
     display: flex;
@@ -139,6 +140,7 @@ body {
     max-height: 87vh;
     max-width: 75vh;
     width: 100%;
+    height: auto;
     border: var(--borderWidth) solid var(--color1);
 }
 .project-details__url {
@@ -147,6 +149,7 @@ body {
     border: var(--borderWidth) solid var(--color1);
     border-bottom: none;
     text-align: center;
+    font-weight: 600;
 }
 .project-details__url a {
     text-decoration: none;
@@ -305,7 +308,7 @@ ul {
     backdrop-filter:blur(10px);
     -webkit-backdrop-filter:blur(10px);
     width: 100%;
-    padding: 32px;
+    padding: 16px;
     color: var(--color2);
 }
 .mainView__card--skills {
@@ -375,7 +378,7 @@ ul {
 .mainView__project-img {
     /* width: 100%; */
     height: 100%;
-    mix-blend-mode: hard-light;
+    /*mix-blend-mode: hard-light; *//* this causes backdrop-filter:blur(10px) to not working on some other elements, not each of them though */
     filter: grayscale(1);
 }
 .mainView__project-info {
@@ -394,6 +397,7 @@ ul {
 }
 .mainView__project-desc {
     display: none;
+    text-align: center;
 }
 .mainView__project-btn {
     position: absolute;
@@ -434,6 +438,10 @@ p{
 
 @media screen and (min-width: 576px){
 
+    .mainView__card {
+        padding: 32px;
+    }
+
     .mainView__projects {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
@@ -468,7 +476,7 @@ p{
 @media screen and (min-width: 768px){
 
     .project-details__title, .project-details__desc, .project-details__url {
-        padding: 12px;
+        padding: 14px;
     }
     
     body{
