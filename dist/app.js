@@ -92,7 +92,7 @@ const projects = [
         description: "Static website for a client.",
         url: "http://bartnapierala.com",
         imgSrc: "style/project-bartnapierala.jpg",
-        stack: 'HTML, AngularJS',
+        stack: 'HTML, AngularJS, CSS',
     },
     {
         name: "Bart's Mom's Atlas",
@@ -108,9 +108,18 @@ const projects = [
         imgSrc: "style/project-bakajana.jpg",
         stack: 'Javascript, CSS, PHP, MySQL',
     },
+    {
+        name: "OptykOsinscy",
+        description: "Static website for a client.",
+        url: "http://optykosinscy.pl",
+        imgSrc: "style/project-optyk.jpg",
+        stack: 'HTML, JQuery, CSS',
+    },
 ];
-// Creating projects card from an array
+// Creating projects card and projects carousel in hidden modal from an array
+const carousel = document.getElementById('project-details__img-wrpr');
 projects.forEach(v => {
+    //projects card  
     const projDiv = document.createElement('div');
     const imgWrapper = document.createElement('div');
     imgWrapper.className = 'mainView__project-imgwrpr'; //just for bg-color and mix-blend-mode
@@ -133,10 +142,18 @@ projects.forEach(v => {
         console.log(e.target.dataset.name);
         openModal(e.target.dataset.name);
     });
+    //carousel in modal
+    const imgCarousel = document.createElement('img');
+    imgCarousel.src = v.imgSrc;
+    imgCarousel.loading = 'lazy';
+    imgCarousel.dataset.name = v.name;
+    imgCarousel.classList.add('project-details__img');
+    imgCarousel.classList.add('project-details__img--behind');
+    carousel.appendChild(imgCarousel);
 });
 // Modal
 const projectDetailsModal = document.getElementById('project-details');
-const main = document.getElementById('project-details__main'); // for animation purposes only
+const main = document.getElementById('project-details__main'); // for animation purposes only (on select project from card)
 const closeBtn = document.getElementById('project-details__close-btn');
 closeBtn.addEventListener('click', () => {
     projectDetailsModal.style.setProperty('opacity', '0');
@@ -163,13 +180,22 @@ function openModal(title) {
     projectDetailsModal.style.setProperty('visibility', 'visible');
     projectDetailsModal.style.setProperty('opacity', '1');
     projectDetailsModal.style.setProperty('transform', 'scale(1)');
-    const kids = main.children;
-    Array.from(kids).forEach((v, i) => {
+    const kidsOfMain = main.children;
+    Array.from(kidsOfMain).forEach((v, i) => {
         setTimeout(() => {
             v.style.setProperty('transform', 'scale(1)');
             v.style.setProperty('opacity', '1');
             console.log(i, v.id);
         }, (i + 1) * 100);
+    });
+    const kidsOfCarousel = carousel.children;
+    Array.from(kidsOfCarousel).forEach((v, i) => {
+        if (v.dataset.name === title) {
+            v.classList.remove('project-details__img--behind');
+        }
+        else {
+            v.classList.add('project-details__img--behind');
+        }
     });
     let titleEl = document.getElementById('project-details__title');
     let descEl = document.getElementById('project-details__desc');
@@ -198,7 +224,7 @@ function openModal(title) {
             titleEl.innerHTML = v.name;
             descEl.innerHTML = v.description + `<br/><span>(Stack: ${v.stack})</span>`;
             urlEl.innerHTML = `<a href="${v.url}" target="_blank">Visit ${v.name}</a>`;
-            imgEl.src = v.imgSrc;
+            //imgEl.src = v.imgSrc;
         }
     });
 }
