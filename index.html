@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="style/main.css"></style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
     </style>
+        
 </head>
-<body id="body">
+<body>
 
     <div class="wrapper">
-        <nav class="navigation" id="navigation">
+        <nav class="navigation">
             <ul class="navigation__ul">
                 <li class="navigation__li" data-dest="home"><a>Home</a></li>
                 <li class="navigation__li" data-dest="about"><a>About Me</a></li>
@@ -41,7 +42,7 @@
                     </a>
                 </li>
                 <li class="navigation__li--toolbar">
-                    <button class="navigation__btn navigation__btn--menu" id="toggleMenuBtn">
+                    <button class="navigation__btn navigation__btn--menu">
                         <div class="tooltip">Toggle menu</div>
                         <span class="material-icons">menu</span>
                     </button>
@@ -50,10 +51,33 @@
         </nav>
         <div class="mainView">
             <section class="mainView__section" id="home">
-                <header class="mainView__header">Frontend Dev fond of schabowy</header>
+                
                 <div class="mainView__content-container mainView__content-container--home">
-                    <img src="style/Jakub1.jpg" width="500" height="500" alt="ja" class="mainView__img--home">
-                    <img src="style/Jakub2.jpg" width="500" height="500" alt="znowu ja" class="mainView__img--home">
+
+                    <div class="mainView__perspective-text">
+                        <div class="mainView__perspective-line">
+                            <p></p>
+                            <p>frontend dev</p>
+                        </div>
+                        <div class="mainView__perspective-line">
+                            <p>frontend dev</p>
+                            <p>fond</p>
+                        </div>
+                        <div class="mainView__perspective-line">
+                            <p>fond</p>
+                            <p>of</p>
+                        </div>
+                        <div class="mainView__perspective-line">
+                            <p>of</p>
+                            <p>schabowy</p>
+                        </div>
+                        <div class="mainView__perspective-line">
+                            <p>schabowy</p>
+                            <p></p>
+                        </div>
+                    </div>
+<!--                     <img src="style/Jakub1.jpg" width="500" height="500" alt="ja" class="mainView__img--home">
+                    <img src="style/Jakub2.jpg" width="500" height="500" alt="znowu ja" class="mainView__img--home"> -->
                 </div>
             </section>
 
@@ -172,7 +196,7 @@
 
                     <div class="mainView__card mainView__card--portfolio">
                         <span class="mainView__subheader">SELECTED PROJECTS</span>
-                        <div class="mainView__projects" id="mainView__projects">
+                        <div class="mainView__projects">
                             <!-- Projects comes here from script -->
                         </div>
                     </div>
@@ -185,11 +209,11 @@
         </div>
     </div>
 
-    <div class="project-details" id="project-details">
-        <div class="project-details__main" id="project-details__main">
-            <div class="project-details__title" id="project-details__title"></div>
+    <div class="project-details">
+        <div class="project-details__main">
+            <div class="project-details__title"></div>
             
-             <div class="project-details__img-wrpr" id="project-details__img-wrpr">
+             <div class="project-details__img-wrpr">
 <!--                 <img class="project-details__img project-details__img--prev" id="project-details__img--prev" width="1" height="1" src="style/project-atlas.jpg">
                 
                 <img class="project-details__img project-details__img--next" id="project-details__img--next" width="1" height="1" src="style/project-atlas.jpg">
@@ -201,12 +225,12 @@
             
             <div class="project-details__info">
 
-                <div class="project-details__desc" id="project-details__desc"></div>
+                <div class="project-details__desc"></div>
 
                 <button class="project-details__btn project-details__btn--nav" id="project-details__previous-btn" aria-label="...">
                     <span class="material-icons">arrow_back</span>
                 </button>
-                <div class="project-details__url" id="project-details__url"></div>
+                <div class="project-details__url"></div>
                 
                 <button class="project-details__btn project-details__btn--nav" id="project-details__next-btn" aria-label="...">
                     <span class="material-icons">arrow_forward</span>
@@ -220,8 +244,8 @@
         
     </div>
 
-    <div class="loader-wrapper" id="loader-wrapper">
-        <div class="loader" id="loader"><span>LOADING...</span></div>
+    <div class="loader-wrapper">
+        <div class="loader"><span class="loader__glitch loader__text" data-text="loading...">loading...</span></div>
     </div>
 
     <script src="dist/app.js"></script>

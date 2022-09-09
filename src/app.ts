@@ -1,12 +1,13 @@
 /* Loader */
-const loader:HTMLElement = document.getElementById('loader')
+const loader:HTMLElement = document.querySelector('.loader')
 var image = new Image();
 
-image.src = getBgUrl(document.getElementById('body'))
+image.src = getBgUrl(document.querySelector('body'))
 
 image.onload = function () {
     console.log('Loaded!')
     loader.style.setProperty('animation','close-loader .5s linear 1s 1 forwards')
+    setTimeout(()=>{(loader.children[0] as HTMLElement).style.setProperty('opacity','0')},1000)
     setTimeout(()=>{loader.parentElement.style.setProperty('opacity','0')},1500)
     setTimeout(()=>{loader.parentElement.style.setProperty('display','none')},1800)
 }
@@ -17,8 +18,8 @@ function getBgUrl(el:HTMLElement):string{
 
 /* Menu */
 var isMenuOpend:boolean = (window.innerWidth > 768) ? true : false
-const toggleMenuBtn:HTMLElement = document.getElementById("toggleMenuBtn")
-const navigation:HTMLElement = document.getElementById('navigation')
+const toggleMenuBtn:HTMLElement = document.querySelector(".navigation__btn--menu")
+const navigation:HTMLElement = document.querySelector('.navigation')
 
 const toggleMenu = ()=>{
 //function toggleMenu():void {
@@ -60,8 +61,44 @@ Array.from(sections).forEach(v=>{
     })
 });
 
+// Observer for animate elements on scroll (observer named projDivAppear launch in loop while creating every project)
+const rootElement = document.querySelector('.mainView')
+let options = {
+  root: rootElement,
+  rootMargin: '0px 0px -10px 0px',
+  threshold: 1.0
+}
+let projDivAppear = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting){
+      (entry.target as HTMLElement).style.setProperty('transform','scaleX(1)');
+      (entry.target as HTMLElement).style.setProperty('opacity','1')
+      observer.unobserve(entry.target)
+    }else{
+      return
+    }
+  })
+}, options);
+
+const skills = document.querySelectorAll('.mainView__card--skills li')
+let skillAppear = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting){
+      (entry.target as HTMLElement).style.setProperty('transform','scaleX(1)');
+      (entry.target as HTMLElement).style.setProperty('opacity','1')
+      observer.unobserve(entry.target)
+    }else{
+      return
+    }
+  })
+}, options);
+
+skills.forEach(skill =>{
+  skillAppear.observe(skill)
+})
+
 /* Selected projects - filling from array, opening modal dialog with specified project (also next & previous) */
-const projectsEl:HTMLElement = document.getElementById('mainView__projects')
+const projectsEl:HTMLElement = document.querySelector('.mainView__projects')
 interface project {
     name:string;
     description:string;
@@ -69,8 +106,8 @@ interface project {
     imgSrc:string;
     stack:string;
 }
-// Adding a project also remember to make change in css grid!!
-const projects: project[] = [
+// When adding a project also remember to make change in css grid!!
+const projectsArr: project[] = [
   {
     name: "PlanThisSh!t",
     url: "http://planthisshit.com",
@@ -130,9 +167,10 @@ const projects: project[] = [
     stack:'HTML, JQuery, CSS',
   },
 ];
+
 // Creating projects card and projects carousel in hidden modal from an array
-const carousel:HTMLElement = document.getElementById('project-details__img-wrpr')
-projects.forEach(v => {
+const carousel:HTMLElement = document.querySelector('.project-details__img-wrpr')
+projectsArr.forEach(v => {
     //projects card  
     const projDiv:HTMLElement = document.createElement('div')
 
@@ -157,8 +195,11 @@ projects.forEach(v => {
     
     projectsEl.appendChild(projDiv)
 
+    // Animation when in viewport - observer launch
+    projDivAppear.observe(projDiv)
+
     bigTransparentButtonCovering.addEventListener('click',(e:any)=>{
-        console.log(e.target.dataset.name)
+        //console.log(e.target.dataset.name)
         openModal(e.target.dataset.name)
     })
 
@@ -173,8 +214,8 @@ projects.forEach(v => {
 })
 
 // Modal
-const projectDetailsModal:HTMLElement = document.getElementById('project-details')
-const main:HTMLElement = document.getElementById('project-details__main')// for animation purposes only (on select project from card)
+const projectDetailsModal:HTMLElement = document.querySelector('.project-details')
+const main:HTMLElement = document.querySelector('.project-details__main')// for animation purposes only (on select project from card)
 
 const closeBtn:HTMLButtonElement = document.getElementById('project-details__close-btn') as HTMLButtonElement
 closeBtn.addEventListener('click', ()=>{
@@ -201,7 +242,6 @@ previousBtn.addEventListener('click',(e:any)=>{
 })
 
 function openModal(title:string):void {
-    console.log(nextBtn.children[0]);
 
     projectDetailsModal.style.setProperty('visibility','visible')
     projectDetailsModal.style.setProperty('opacity','1')
@@ -212,7 +252,7 @@ function openModal(title:string):void {
         setTimeout(()=>{
             (v as HTMLElement).style.setProperty('transform','scale(1)');
             (v as HTMLElement).style.setProperty('opacity','1')
-            console.log(i,v.id)
+            //console.log(i,v.id)
         },(i+1)*100)
     });
 
@@ -225,28 +265,28 @@ function openModal(title:string):void {
       }
     })
 
-    let titleEl:HTMLElement = document.getElementById('project-details__title')
-    let descEl:HTMLElement = document.getElementById('project-details__desc')
-    let urlEl:HTMLElement = document.getElementById('project-details__url')
-    let imgEl:HTMLImageElement = (document.getElementById('project-details__img') as HTMLImageElement)
+    let titleEl:HTMLElement = document.querySelector('.project-details__title')
+    let descEl:HTMLElement = document.querySelector('.project-details__desc')
+    let urlEl:HTMLElement = document.querySelector('.project-details__url')
+    let imgEl:HTMLImageElement = (document.querySelector('.project-details__img') as HTMLImageElement)
 
-    projects.forEach((v,i)=>{
+    projectsArr.forEach((v,i)=>{
         if (v.name === title) {
-          if (i == projects.length - 1) {
-            nextBtn.dataset.name = projects[0].name;
-            nextBtn.children[0].setAttribute('data-name',projects[0].name)
-            previousBtn.dataset.name = projects[i - 1].name;
-            previousBtn.children[0].setAttribute('data-name',projects[i - 1].name)
+          if (i == projectsArr.length - 1) {
+            nextBtn.dataset.name = projectsArr[0].name;
+            nextBtn.children[0].setAttribute('data-name',projectsArr[0].name)
+            previousBtn.dataset.name = projectsArr[i - 1].name;
+            previousBtn.children[0].setAttribute('data-name',projectsArr[i - 1].name)
           } else if (i == 0) {
-            nextBtn.dataset.name = projects[i + 1].name;
-            nextBtn.children[0].setAttribute('data-name',projects[i + 1].name)
-            previousBtn.dataset.name = projects[projects.length - 1].name;
-            previousBtn.children[0].setAttribute('data-name',projects[projects.length - 1].name)
+            nextBtn.dataset.name = projectsArr[i + 1].name;
+            nextBtn.children[0].setAttribute('data-name',projectsArr[i + 1].name)
+            previousBtn.dataset.name = projectsArr[projectsArr.length - 1].name;
+            previousBtn.children[0].setAttribute('data-name',projectsArr[projectsArr.length - 1].name)
           } else {
-            nextBtn.dataset.name = projects[i + 1].name;
-            nextBtn.children[0].setAttribute('data-name',projects[i + 1].name)
-            previousBtn.dataset.name = projects[i - 1].name;
-            previousBtn.children[0].setAttribute('data-name',projects[i - 1].name)
+            nextBtn.dataset.name = projectsArr[i + 1].name;
+            nextBtn.children[0].setAttribute('data-name',projectsArr[i + 1].name)
+            previousBtn.dataset.name = projectsArr[i - 1].name;
+            previousBtn.children[0].setAttribute('data-name',projectsArr[i - 1].name)
           }
 
           titleEl.innerHTML = v.name;
