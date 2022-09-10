@@ -296,3 +296,14 @@ function openModal(title:string):void {
         }
     })
 }
+
+/* Text effects in about section */
+const spans = document.querySelectorAll('.mainView__about-efx span')
+spans.forEach(v => {
+  v.addEventListener('mouseenter', ev => {
+    (ev.target as HTMLElement).style.setProperty('animation','thicker-font .2s linear forwards')
+  })
+  v.addEventListener('mouseleave', ev => {
+    (ev.target as HTMLElement).style.setProperty('animation','thiner-font .2s linear forwards')
+  })
+})
