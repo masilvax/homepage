@@ -268,11 +268,21 @@ function openModal(title) {
 }
 /* Text effects in about section */
 const spans = document.querySelectorAll('.mainView__about-efx span');
-spans.forEach(v => {
+spans.forEach((v, i) => {
     v.addEventListener('mouseenter', ev => {
-        ev.target.style.setProperty('animation', 'thicker-font .2s linear forwards');
+        if (i === 2) {
+            ev.target.style.setProperty('animation', 'thiner-font .2s linear forwards');
+        }
+        else {
+            ev.target.style.setProperty('animation', 'thicker-font .2s linear forwards');
+        }
     });
     v.addEventListener('mouseleave', ev => {
-        ev.target.style.setProperty('animation', 'thiner-font .2s linear forwards');
+        if (i === 2) {
+            ev.target.style.setProperty('animation', 'thicker-font .2s linear forwards');
+        }
+        else {
+            ev.target.style.setProperty('animation', 'thiner-font .2s linear forwards');
+        }
     });
 });
