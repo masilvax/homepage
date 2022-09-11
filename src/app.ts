@@ -24,7 +24,7 @@ const navigation:HTMLElement = document.querySelector('.navigation')
 const toggleMenu = ()=>{
 //function toggleMenu():void {
     if(isMenuOpend){
-        if (window.innerWidth > 768) {
+        if (window.innerWidth >= 768) {
             toggleMenuBtn.style.setProperty("transform","translateX(56px)")
             navigation.style.setProperty("margin-left", "-224px");
         }else{
@@ -32,7 +32,7 @@ const toggleMenu = ()=>{
             navigation.style.setProperty('left','100vw')
         }
     }else{
-        if (window.innerWidth > 768) {
+        if (window.innerWidth >= 768) {
             toggleMenuBtn.style.setProperty('transform','translateX(0px)')
             navigation.style.setProperty('margin-left','0px')
         }else{
@@ -45,7 +45,7 @@ const toggleMenu = ()=>{
 toggleMenuBtn.addEventListener('click',toggleMenu);
 
 window.onresize = ()=>{
-    isMenuOpend = (window.innerWidth > 768) ? false : true;//odwrotnie, bo niżej toggle'uje menu
+    isMenuOpend = (window.innerWidth >= 768) ? false : true;//odwrotnie, bo niżej toggle'uje menu
     toggleMenu()
 }
 
@@ -56,12 +56,12 @@ Array.from(sections).forEach(v=>{
     v.addEventListener('click',()=>{
         const el:HTMLElement = document.getElementById(v.getAttribute('data-dest'))//Property 'dataset' does not exist on type 'Element' 
         el.scrollIntoView({behavior: 'smooth', block: 'start'})
-        if (window.innerWidth <= 768)
+        if (window.innerWidth < 768)
             toggleMenu();
     })
 });
 
-// Observer for animate elements on scroll (observer named projDivAppear launch in loop while creating every project)
+// Observers for animate elements on scroll (observer named projDivAppear launch in loop while creating every project)
 const rootElement = document.querySelector('.mainView')
 let options = {
   root: rootElement,
@@ -92,7 +92,7 @@ let skillAppear = new IntersectionObserver((entries, observer) => {
     }
   })
 }, options);
-
+//observer for skills launch
 skills.forEach(skill =>{
   skillAppear.observe(skill)
 })
