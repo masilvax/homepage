@@ -162,6 +162,8 @@ projectsArr.forEach(v => {
     imgWrapper.className = 'mainView__project-imgwrpr'; //just for bg-color and mix-blend-mode
     const img = document.createElement('img');
     img.src = v.imgSrc;
+    img.width = 100;
+    img.height = 100;
     img.loading = 'lazy';
     img.className = 'mainView__project-img';
     imgWrapper.appendChild(img);
@@ -184,6 +186,8 @@ projectsArr.forEach(v => {
     //carousel in modal
     const imgCarousel = document.createElement('img');
     imgCarousel.src = v.imgSrc;
+    imgCarousel.width = 500;
+    imgCarousel.height = 500;
     imgCarousel.loading = 'lazy';
     imgCarousel.dataset.name = v.name;
     imgCarousel.classList.add('project-details__img');
@@ -268,16 +272,16 @@ function openModal(title) {
 }
 /* Text effects in about section */
 const spans = document.querySelectorAll('.mainView__about-efx span');
-spans.forEach((v, i) => {
-    v.addEventListener('mouseenter', ev => {
+spans.forEach((span, i) => {
+    span.addEventListener('mouseenter', () => {
         if (i === 2) {
-            ev.target.style.setProperty('animation', 'thiner-font .2s linear forwards');
+            span.style.setProperty('animation', 'thiner-font .2s linear forwards');
         }
         else {
-            ev.target.style.setProperty('animation', 'thicker-font .2s linear forwards');
+            span.style.setProperty('animation', 'thicker-font .2s linear forwards');
         }
     });
-    v.addEventListener('mouseleave', ev => {
+    span.addEventListener('mouseleave', ev => {
         if (i === 2) {
             ev.target.style.setProperty('animation', 'thicker-font .2s linear forwards');
         }
@@ -286,3 +290,38 @@ spans.forEach((v, i) => {
         }
     });
 });
+/* Animation in contact section */
+const cards = document.querySelectorAll('.mainView__card--contact');
+const contactSection = document.getElementById('contact'); //querySelector('.mainView__card--contact')
+let options2 = {
+    root: rootElement,
+    rootMargin: '0px 0px -10px 0px',
+    threshold: 0.7
+};
+let contactAppear = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            cards.forEach((card, i) => {
+                setTimeout(() => {
+                    card.style.setProperty('transform', 'scale(1)');
+                }, i * 100);
+                setTimeout(() => {
+                    card.children[0].style.setProperty('transform', 'scale(1)');
+                }, 600 - (i * 100));
+            });
+            //observer.unobserve(entry.target)
+        }
+        else {
+            cards.forEach((card, i) => {
+                setTimeout(() => {
+                    card.style.setProperty('transform', 'scale(.1)');
+                }, 600 - (i * 100));
+                setTimeout(() => {
+                    card.children[0].style.setProperty('transform', 'scale(.1)');
+                }, i * 100);
+            });
+            //return
+        }
+    });
+}, options2);
+contactAppear.observe(contactSection);

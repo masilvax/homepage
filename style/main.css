@@ -508,9 +508,9 @@ ul {
     letter-spacing: 0.13em;
     line-height: 0.7;
 }
-.mainView__about-efx span:nth-child(2) {
+/* .mainView__about-efx span:nth-child(2) {
     
-}
+} */
 .mainView__about-efx span:nth-child(3) {
     font-size: 2.15em;
     line-height: 0.7;
@@ -648,6 +648,33 @@ ul {
 .mainView__card--skills li > span:first-child {
     margin-right: 8px;
 }
+.mainView__card--contact {
+    width: 25%;
+    aspect-ratio: 1;
+    transform: scale(.1);
+    transition: transform .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.mainView__card--contact div {
+    border: var(--borderWidth) solid var(--color1);
+}
+.mainView__card--contact > div {
+    height: 100%;
+    padding: 8px;
+    transform: scale(.1);
+    transition: transform .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.mainView__card--contact > div > div {
+    border-radius: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.mainView__card--contact > div > div > div {
+    border-radius: 50%;
+    height: 20%;
+    aspect-ratio: 1;
+}
 
 .mainView__subheader {
     padding-bottom: 16px;
@@ -676,15 +703,15 @@ ul {
     transform: scaleX(.1);
     opacity: 0;
 }
-.mainView__project-imgwrpr {
+.mainView__project-imgwrpr { /* for mix-blend-mode which crashes blur in firefox, so maybe in future */
     width: 160px;
     height: 160px;
     background-color: var(--color1); 
     border: var(--borderWidth) solid var(--color2); 
 }
 .mainView__project-img {
-    /* width: 100%; */
-    height: 100%;
+    width: calc(160px - var(--borderWidth)*2);/* width heigth in html for performance so we need this */
+    height: calc(160px - var(--borderWidth)*2);
     /*mix-blend-mode: hard-light; *//* this causes backdrop-filter:blur(10px) to not working on some other elements, not each of them though */
     filter: grayscale(1) brightness(.5);
 }
@@ -776,6 +803,10 @@ p{
         width: 100px;
         height: 100px; 
     }
+    .mainView__project-img {
+        width: calc(100px - var(--borderWidth)*2);
+        height: calc(100px - var(--borderWidth)*2);
+    }
 
     .mainView__project-btn {
         height: 100%;
@@ -851,6 +882,11 @@ p{
         width: 150px;
         height: 150px;
     }
+    .mainView__project-img {
+        width: calc(150px - var(--borderWidth)*2);
+        height: calc(150px - var(--borderWidth)*2);
+    }
+
     .mainView__perspective-text {
         margin-top: 100px;    
         transform: scale(1);
