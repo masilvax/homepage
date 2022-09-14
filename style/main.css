@@ -26,7 +26,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: black;
-    transition: opacity .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 .loader {
     width: 100%;
@@ -49,7 +49,7 @@ body {
 .loader__text {
     color: var(--color2);
     text-transform: uppercase;
-    transition: opacity .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 .loader__text::before, .loader__text::after{
     content: attr(data-text);
@@ -139,12 +139,12 @@ body {
     color: var(--color2);
     transform: scale(.1);
     opacity: 0;
-    transition: transform .3s cubic-bezier(0.165, 0.84, 0.44, 1), opacity .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform .8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 .project-details__main > div, .project-details__main > img {
     transform: scale(.5);
     opacity: 0;
-    transition: transform .3s cubic-bezier(0.165, 0.84, 0.44, 1), opacity .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform .8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 .project-details__main {
     display: flex;
@@ -197,7 +197,7 @@ body {
     border: var(--borderWidth) solid var(--color2);
     min-height: 10vh;
     margin: 0 auto;
-    transition: all .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all .8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 .project-details__img-wrpr {
     max-height: 75vh;
@@ -253,7 +253,7 @@ body {
 }
 
 .navigation {
-    transition: margin-left .3s cubic-bezier(0.165, 0.84, 0.44, 1), left .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: margin-left .8s cubic-bezier(0.165, 0.84, 0.44, 1), left .8s cubic-bezier(0.165, 0.84, 0.44, 1);
     width: 100vw;
     height: 100%;/* Na mobilnych dochodzi chowający się pasek adresu i wszystko psuje, dlatego PROCENT!!! */
     margin-left: 0px;
@@ -286,7 +286,7 @@ ul {
     height: 56px;
     color: var(--color2);
     cursor: pointer;
-    transition: background-color .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: background-color .8s cubic-bezier(0.165, 0.84, 0.44, 1);
     border-top: var(--borderWidth) solid transparent;
     border-bottom: var(--borderWidth) solid transparent;
     display: flex;
@@ -310,7 +310,7 @@ ul {
     width: 56px;
     height: 56px;
     display: block;/* <a> też z tego korzysta */
-    transition: background-color .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: background-color .8s cubic-bezier(0.165, 0.84, 0.44, 1);
     color: black;
 }
 .navigation__btn:hover {
@@ -324,7 +324,7 @@ ul {
 }
 .navigation__btn--menu {
     border-radius: 50% 0 0 0;
-    transition: transform .3s cubic-bezier(0.165, 0.84, 0.44, 1), left .3s cubic-bezier(0.165, 0.84, 0.44, 1), background-color .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform .8s cubic-bezier(0.165, 0.84, 0.44, 1), left .8s cubic-bezier(0.165, 0.84, 0.44, 1), background-color .8s cubic-bezier(0.165, 0.84, 0.44, 1);
     transform: translateX(-100vw);
 }
 .navigation__icon-img {
@@ -344,7 +344,7 @@ ul {
     padding: 4px;
     border-radius: 2px;
     color: black;
-    transition: opacity .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 .navigation__btn:hover > .tooltip, .mainView__img--skills:hover + .tooltip {
     visibility:visible;
@@ -425,7 +425,7 @@ ul {
     margin: 0;
     height: 50px;
     line-height: 50px;
-    transition: all 0.5s ease-in-out;
+    transition: all .8s cubic-bezier(0.165, 0.84, 0.44, 1);
     white-space: nowrap;
 }
 .mainView__perspective-line:nth-child(odd) {
@@ -630,7 +630,7 @@ ul {
     margin-top:4px;
     display: flex;
     justify-content: space-between;
-    transition: transform .3s cubic-bezier(0.165, 0.84, 0.44, 1), opacity .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform .8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1);
     transform-origin: left;
     transform: scaleX(.1);
     opacity: 0;
@@ -649,31 +649,48 @@ ul {
     margin-right: 8px;
 }
 .mainView__card--contact {
-    width: 25%;
     aspect-ratio: 1;
     transform: scale(.1);
-    transition: transform .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    opacity: 0;
+    transition: transform .8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 .mainView__card--contact div {
-    border: var(--borderWidth) solid var(--color1);
+    border: var(--borderWidth) solid var(--color2);
 }
 .mainView__card--contact > div {
     height: 100%;
     padding: 8px;
     transform: scale(.1);
-    transition: transform .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    opacity: 0;
+    transition: transform .8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-.mainView__card--contact > div > div {
+.mainView__card--contact > div > div { /* circle */
     border-radius: 50%;
     height: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    border: var(--borderWidth) solid var(--color1);
+    transform: scale(.1);
+    opacity: 0;
+    transition: transform .8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-.mainView__card--contact > div > div > div {
+.mainView__card--contact > div > div > div { /* Pig eyes */
     border-radius: 50%;
     height: 20%;
     aspect-ratio: 1;
+}
+.mainView__card--contact img {
+    width: 100%;
+    height: 100%;
+}
+.mainView__card--contact a { 
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform: scale(.1);
+    opacity: 0;
+    transition: transform .8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .mainView__subheader {
@@ -698,7 +715,7 @@ ul {
     background-color: rgba(0,0,0,.3);
     position: relative;
     cursor: pointer;
-    transition: transform .3s cubic-bezier(0.165, 0.84, 0.44, 1), opacity .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform .8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1);
     transform-origin: left;
     transform: scaleX(.1);
     opacity: 0;
@@ -950,6 +967,24 @@ p{
 
     .project-details__img-wrpr, .project-details__img {
         width: auto;
+    }
+    .mainView__content-container--contact {
+        flex-direction: row;
+    }
+    .mainView__card--contact {
+        padding: 2vh;
+        width: 25%;
+    }
+}
+
+@media only screen and (orientation: portrait) {
+    .mainView__content-container--contact {
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .mainView__card--contact {
+        padding: 2vw;
+        width: 35vw;
     }
 }
 

@@ -61,44 +61,8 @@ Array.from(sections).forEach(v=>{
     })
 });
 
-// Observers for animate elements on scroll (observer named projDivAppear launch in loop while creating every project)
-const rootElement = document.querySelector('.mainView')
-let options = {
-  root: rootElement,
-  rootMargin: '0px 0px -10px 0px',
-  threshold: 1.0
-}
-let projDivAppear = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting){
-      (entry.target as HTMLElement).style.setProperty('transform','scaleX(1)');
-      (entry.target as HTMLElement).style.setProperty('opacity','1')
-      observer.unobserve(entry.target)
-    }else{
-      return
-    }
-  })
-}, options);
-
-const skills = document.querySelectorAll('.mainView__card--skills li')
-let skillAppear = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting){
-      (entry.target as HTMLElement).style.setProperty('transform','scaleX(1)');
-      (entry.target as HTMLElement).style.setProperty('opacity','1')
-      observer.unobserve(entry.target)
-    }else{
-      return
-    }
-  })
-}, options);
-//observer for skills launch
-skills.forEach(skill =>{
-  skillAppear.observe(skill)
-})
-
 /* Selected projects - filling from array, opening modal dialog with specified project (also next & previous) */
-const projectsEl:HTMLElement = document.querySelector('.mainView__projects')
+const projectsCard:HTMLElement = document.querySelector('.mainView__projects')
 interface project {
     name:string;
     description:string;
@@ -195,10 +159,10 @@ projectsArr.forEach(v => {
     bigTransparentButtonCovering.dataset.name = v.name
     projDiv.appendChild(bigTransparentButtonCovering)
     
-    projectsEl.appendChild(projDiv)
+    projectsCard.appendChild(projDiv)
 
     // Animation when in viewport - observer launch
-    projDivAppear.observe(projDiv)
+    //projDivAppear.observe(projDiv) // change of plans - instead of observing each projDiv, let's observe projectsCard after this foreach loop
 
     bigTransparentButtonCovering.addEventListener('click',(e:any)=>{
         //console.log(e.target.dataset.name)
@@ -320,36 +284,44 @@ spans.forEach((span,i) => {
   })
 })
 
-/* Animation in contact section */
-const cards:NodeListOf<HTMLElement> = document.querySelectorAll('.mainView__card--contact')
+/* Animations */
+const rootElement = document.querySelector('.mainView')
+/* in contact section */
+const contactCards:NodeListOf<HTMLElement> = document.querySelectorAll('.mainView__card--contact')
 const contactSection:HTMLElement = document.getElementById('contact')//querySelector('.mainView__card--contact')
 
 let options2 = {
   root: rootElement,
   rootMargin: '0px 0px -10px 0px',
-  threshold: 0.7
+  threshold: 0.4
 }
 
 let contactAppear = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting){
-      cards.forEach((card,i) => {
+      contactCards.forEach((card,i) => {
         setTimeout(() => {
           card.style.setProperty('transform','scale(1)')
-        }, i*100);
+          card.style.setProperty('opacity','1')
+        }, i*100)
         setTimeout(() => {
-          (card.children[0] as HTMLElement).style.setProperty('transform','scale(1)')
-        }, 600-(i*100));
+          (card.children[0] as HTMLElement).style.setProperty('opacity','1');
+          (card.children[0] as HTMLElement).style.setProperty('transform','scale(1)');
+        }, 600 - (i*100))
+        setTimeout(() => {
+          (card.children[0].children[0] as HTMLElement).style.setProperty('opacity','1');
+          (card.children[0].children[0] as HTMLElement).style.setProperty('transform','scale(1)');
+        }, 800 + (i*100))
       })
       //observer.unobserve(entry.target)
     }else{
-      cards.forEach((card,i) => {
-        setTimeout(() => {
-          card.style.setProperty('transform','scale(.1)')
-        }, 600-(i*100));
-        setTimeout(() => {
-          (card.children[0] as HTMLElement).style.setProperty('transform','scale(.1)')
-        }, i*100);
+      contactCards.forEach((card,i) => {
+        card.style.setProperty('opacity','0')
+        card.style.setProperty('transform','scale(.1)');
+        (card.children[0] as HTMLElement).style.setProperty('opacity','0');
+        (card.children[0] as HTMLElement).style.setProperty('transform','scale(.1)');
+        (card.children[0].children[0] as HTMLElement).style.setProperty('opacity','0');
+        (card.children[0].children[0] as HTMLElement).style.setProperty('transform','scale(.1)');
       })
       //return
     }
@@ -357,3 +329,62 @@ let contactAppear = new IntersectionObserver((entries, observer) => {
 }, options2);
 
 contactAppear.observe(contactSection)
+
+
+/* Observers for animate elements on scroll (observer named projDivAppear launch in loop while creating every project) */
+let options = {
+  root: rootElement,
+  rootMargin: '0px 0px -10px 0px',
+  threshold: 0.3
+}
+let projectsCardAppear = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting){
+      Array.from(projectsCard.children).forEach((prjct,i) => {
+        setTimeout(() => {
+          (prjct as HTMLElement).style.setProperty('transform','scaleX(1)');
+          (prjct as HTMLElement).style.setProperty('opacity','1');
+        }, i*100);
+      });
+      observer.unobserve(entry.target)
+    }else{
+      return
+    }
+  })
+}, options);
+
+projectsCardAppear.observe(projectsCard)
+
+const skills = document.querySelectorAll('.mainView__card--skills li')
+/*let skillAppear = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting){
+      (entry.target as HTMLElement).style.setProperty('transform','scaleX(1)');
+      (entry.target as HTMLElement).style.setProperty('opacity','1')
+      observer.unobserve(entry.target)
+    }else{
+      return
+    }
+  })
+}, options);
+//observer for skills launch
+skills.forEach(skill =>{
+  skillAppear.observe(skill)
+}) */
+
+let skillAppear:IntersectionObserver = new IntersectionObserver((entries,observer) => {
+  entries.forEach(entry => {
+    if(!entry.isIntersecting)
+      return
+    else{
+      skills.forEach((skillListItem,i) => {
+        setTimeout(() => {
+          (skillListItem as HTMLElement).style.setProperty('transform','scaleX(1)');
+          (skillListItem as HTMLElement).style.setProperty('opacity','1');          
+        }, i*100);
+      })
+    }
+  });
+})
+const firstSkillList:HTMLElement = document.querySelector('.mainView__card--skills')
+skillAppear.observe(firstSkillList)  
