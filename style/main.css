@@ -493,13 +493,13 @@ ul {
 .mainView__about-grid > div:nth-child(11) { grid-area: 1 / 6 / 2 / 7; display: none; }
 
 .mainview__about-header {
-    font-size: .9em;
+    font-size: .8em;
     padding-bottom: 32px;
     width: 100%;
 }
 .mainView__about-main {
     text-align: justify;
-    font-size: 1.3em;
+    font-size: 1.1em;
 }
 .mainView__about-efx, .mainView__about-big {
     font-size: 1.5em;
