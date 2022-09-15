@@ -137,6 +137,7 @@ const carousel:HTMLElement = document.querySelector('.project-details__img-wrpr'
 projectsArr.forEach(v => {
     //projects card  
     const projDiv:HTMLElement = document.createElement('div')
+    projDiv.className = 'mainView__projects-li'
 
     const imgWrapper:HTMLElement = document.createElement('div')
     imgWrapper.className = 'mainView__project-imgwrpr'//just for bg-color and mix-blend-mode
@@ -187,14 +188,12 @@ const main:HTMLElement = document.querySelector('.project-details__main')// for 
 
 const closeBtn:HTMLButtonElement = document.getElementById('project-details__close-btn') as HTMLButtonElement
 closeBtn.addEventListener('click', ()=>{
-    projectDetailsModal.style.setProperty('opacity','0')
-    projectDetailsModal.style.setProperty('transform','scale(.1)')
+    projectDetailsModal.classList.remove('visible')
     setTimeout(()=>{
         projectDetailsModal.style.setProperty('visibility','hidden')
         const kids = main.children
         Array.from(kids).forEach((v, i) => {
-            (v as HTMLElement).style.setProperty("transform", "scale(.5)");
-            (v as HTMLElement).style.setProperty("opacity", "0");
+            (v as HTMLElement).classList.remove('visible')
         });
     },300)//wait .3s for transitions to end
 })
@@ -212,14 +211,12 @@ previousBtn.addEventListener('click',(e:any)=>{
 function openModal(title:string):void {
 
     projectDetailsModal.style.setProperty('visibility','visible')
-    projectDetailsModal.style.setProperty('opacity','1')
-    projectDetailsModal.style.setProperty('transform','scale(1)')
+    projectDetailsModal.classList.add('visible')
 
     const kidsOfMain = main.children
     Array.from(kidsOfMain).forEach((v,i) => {
         setTimeout(()=>{
-            (v as HTMLElement).style.setProperty('transform','scale(1)');
-            (v as HTMLElement).style.setProperty('opacity','1')
+            (v as HTMLElement).classList.add('visible')
             //console.log(i,v.id)
         },(i+1)*100)
     });
@@ -236,7 +233,7 @@ function openModal(title:string):void {
     let titleEl:HTMLElement = document.querySelector('.project-details__title')
     let descEl:HTMLElement = document.querySelector('.project-details__desc')
     let urlEl:HTMLElement = document.querySelector('.project-details__url')
-    let imgEl:HTMLImageElement = (document.querySelector('.project-details__img') as HTMLImageElement)
+    //let imgEl:HTMLImageElement = (document.querySelector('.project-details__img') as HTMLImageElement)
 
     projectsArr.forEach((v,i)=>{
         if (v.name === title) {
@@ -284,8 +281,9 @@ spans.forEach((span,i) => {
   })
 })
 
-/* Animations */
+/* Animations - bservers for animate elements on scroll */
 const rootElement = document.querySelector('.mainView')
+
 /* in contact section */
 const contactCards:NodeListOf<HTMLElement> = document.querySelectorAll('.mainView__card--contact')
 const contactSection:HTMLElement = document.getElementById('contact')//querySelector('.mainView__card--contact')
@@ -301,27 +299,21 @@ let contactAppear = new IntersectionObserver((entries, observer) => {
     if (entry.isIntersecting){
       contactCards.forEach((card,i) => {
         setTimeout(() => {
-          card.style.setProperty('transform','scale(1)')
-          card.style.setProperty('opacity','1')
+          card.classList.add('visible')
         }, i*100)
         setTimeout(() => {
-          (card.children[0] as HTMLElement).style.setProperty('opacity','1');
-          (card.children[0] as HTMLElement).style.setProperty('transform','scale(1)');
+          (card.children[0] as HTMLElement).classList.add('visible');
         }, 600 - (i*100))
         setTimeout(() => {
-          (card.children[0].children[0] as HTMLElement).style.setProperty('opacity','1');
-          (card.children[0].children[0] as HTMLElement).style.setProperty('transform','scale(1)');
+          (card.children[0].children[0] as HTMLElement).classList.add('visible');
         }, 800 + (i*100))
       })
       //observer.unobserve(entry.target)
     }else{
       contactCards.forEach((card,i) => {
-        card.style.setProperty('opacity','0')
-        card.style.setProperty('transform','scale(.1)');
-        (card.children[0] as HTMLElement).style.setProperty('opacity','0');
-        (card.children[0] as HTMLElement).style.setProperty('transform','scale(.1)');
-        (card.children[0].children[0] as HTMLElement).style.setProperty('opacity','0');
-        (card.children[0].children[0] as HTMLElement).style.setProperty('transform','scale(.1)');
+        card.classList.remove('visible');
+        (card.children[0] as HTMLElement).classList.remove('visible');
+        (card.children[0].children[0] as HTMLElement).classList.remove('visible');
       })
       //return
     }
@@ -330,8 +322,7 @@ let contactAppear = new IntersectionObserver((entries, observer) => {
 
 contactAppear.observe(contactSection)
 
-
-/* Observers for animate elements on scroll (observer named projDivAppear launch in loop while creating every project) */
+/* Experience section - skills and projects */
 let options = {
   root: rootElement,
   rootMargin: '0px 0px -10px 0px',
@@ -342,8 +333,7 @@ let projectsCardAppear = new IntersectionObserver((entries, observer) => {
     if (entry.isIntersecting){
       Array.from(projectsCard.children).forEach((prjct,i) => {
         setTimeout(() => {
-          (prjct as HTMLElement).style.setProperty('transform','scaleX(1)');
-          (prjct as HTMLElement).style.setProperty('opacity','1');
+          (prjct as HTMLElement).classList.add('visible-x');
         }, i*100);
       });
       observer.unobserve(entry.target)
@@ -355,7 +345,7 @@ let projectsCardAppear = new IntersectionObserver((entries, observer) => {
 
 projectsCardAppear.observe(projectsCard)
 
-const skills = document.querySelectorAll('.mainView__card--skills li')
+const skills = document.querySelectorAll('.mainView__card--skills-li')
 /*let skillAppear = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting){
@@ -379,12 +369,12 @@ let skillAppear:IntersectionObserver = new IntersectionObserver((entries,observe
     else{
       skills.forEach((skillListItem,i) => {
         setTimeout(() => {
-          (skillListItem as HTMLElement).style.setProperty('transform','scaleX(1)');
-          (skillListItem as HTMLElement).style.setProperty('opacity','1');          
+          (skillListItem as HTMLElement).classList.add('visible-x');         
         }, i*100);
       })
+      observer.unobserve(entry.target)
     }
   });
-})
+}, options)
 const firstSkillList:HTMLElement = document.querySelector('.mainView__card--skills')
 skillAppear.observe(firstSkillList)  

@@ -122,6 +122,7 @@ const carousel = document.querySelector('.project-details__img-wrpr');
 projectsArr.forEach(v => {
     //projects card  
     const projDiv = document.createElement('div');
+    projDiv.className = 'mainView__projects-li';
     const imgWrapper = document.createElement('div');
     imgWrapper.className = 'mainView__project-imgwrpr'; //just for bg-color and mix-blend-mode
     const img = document.createElement('img');
@@ -163,14 +164,12 @@ const projectDetailsModal = document.querySelector('.project-details');
 const main = document.querySelector('.project-details__main'); // for animation purposes only (on select project from card)
 const closeBtn = document.getElementById('project-details__close-btn');
 closeBtn.addEventListener('click', () => {
-    projectDetailsModal.style.setProperty('opacity', '0');
-    projectDetailsModal.style.setProperty('transform', 'scale(.1)');
+    projectDetailsModal.classList.remove('visible');
     setTimeout(() => {
         projectDetailsModal.style.setProperty('visibility', 'hidden');
         const kids = main.children;
         Array.from(kids).forEach((v, i) => {
-            v.style.setProperty("transform", "scale(.5)");
-            v.style.setProperty("opacity", "0");
+            v.classList.remove('visible');
         });
     }, 300); //wait .3s for transitions to end
 });
@@ -184,13 +183,11 @@ previousBtn.addEventListener('click', (e) => {
 });
 function openModal(title) {
     projectDetailsModal.style.setProperty('visibility', 'visible');
-    projectDetailsModal.style.setProperty('opacity', '1');
-    projectDetailsModal.style.setProperty('transform', 'scale(1)');
+    projectDetailsModal.classList.add('visible');
     const kidsOfMain = main.children;
     Array.from(kidsOfMain).forEach((v, i) => {
         setTimeout(() => {
-            v.style.setProperty('transform', 'scale(1)');
-            v.style.setProperty('opacity', '1');
+            v.classList.add('visible');
             //console.log(i,v.id)
         }, (i + 1) * 100);
     });
@@ -206,7 +203,7 @@ function openModal(title) {
     let titleEl = document.querySelector('.project-details__title');
     let descEl = document.querySelector('.project-details__desc');
     let urlEl = document.querySelector('.project-details__url');
-    let imgEl = document.querySelector('.project-details__img');
+    //let imgEl:HTMLImageElement = (document.querySelector('.project-details__img') as HTMLImageElement)
     projectsArr.forEach((v, i) => {
         if (v.name === title) {
             if (i == projectsArr.length - 1) {
@@ -254,7 +251,7 @@ spans.forEach((span, i) => {
         }
     });
 });
-/* Animations */
+/* Animations - bservers for animate elements on scroll */
 const rootElement = document.querySelector('.mainView');
 /* in contact section */
 const contactCards = document.querySelectorAll('.mainView__card--contact');
@@ -269,35 +266,29 @@ let contactAppear = new IntersectionObserver((entries, observer) => {
         if (entry.isIntersecting) {
             contactCards.forEach((card, i) => {
                 setTimeout(() => {
-                    card.style.setProperty('transform', 'scale(1)');
-                    card.style.setProperty('opacity', '1');
+                    card.classList.add('visible');
                 }, i * 100);
                 setTimeout(() => {
-                    card.children[0].style.setProperty('opacity', '1');
-                    card.children[0].style.setProperty('transform', 'scale(1)');
+                    card.children[0].classList.add('visible');
                 }, 600 - (i * 100));
                 setTimeout(() => {
-                    card.children[0].children[0].style.setProperty('opacity', '1');
-                    card.children[0].children[0].style.setProperty('transform', 'scale(1)');
+                    card.children[0].children[0].classList.add('visible');
                 }, 800 + (i * 100));
             });
             //observer.unobserve(entry.target)
         }
         else {
             contactCards.forEach((card, i) => {
-                card.style.setProperty('opacity', '0');
-                card.style.setProperty('transform', 'scale(.1)');
-                card.children[0].style.setProperty('opacity', '0');
-                card.children[0].style.setProperty('transform', 'scale(.1)');
-                card.children[0].children[0].style.setProperty('opacity', '0');
-                card.children[0].children[0].style.setProperty('transform', 'scale(.1)');
+                card.classList.remove('visible');
+                card.children[0].classList.remove('visible');
+                card.children[0].children[0].classList.remove('visible');
             });
             //return
         }
     });
 }, options2);
 contactAppear.observe(contactSection);
-/* Observers for animate elements on scroll (observer named projDivAppear launch in loop while creating every project) */
+/* Experience section - skills and projects */
 let options = {
     root: rootElement,
     rootMargin: '0px 0px -10px 0px',
@@ -308,8 +299,7 @@ let projectsCardAppear = new IntersectionObserver((entries, observer) => {
         if (entry.isIntersecting) {
             Array.from(projectsCard.children).forEach((prjct, i) => {
                 setTimeout(() => {
-                    prjct.style.setProperty('transform', 'scaleX(1)');
-                    prjct.style.setProperty('opacity', '1');
+                    prjct.classList.add('visible-x');
                 }, i * 100);
             });
             observer.unobserve(entry.target);
@@ -320,7 +310,7 @@ let projectsCardAppear = new IntersectionObserver((entries, observer) => {
     });
 }, options);
 projectsCardAppear.observe(projectsCard);
-const skills = document.querySelectorAll('.mainView__card--skills li');
+const skills = document.querySelectorAll('.mainView__card--skills-li');
 /*let skillAppear = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting){
@@ -343,12 +333,12 @@ let skillAppear = new IntersectionObserver((entries, observer) => {
         else {
             skills.forEach((skillListItem, i) => {
                 setTimeout(() => {
-                    skillListItem.style.setProperty('transform', 'scaleX(1)');
-                    skillListItem.style.setProperty('opacity', '1');
+                    skillListItem.classList.add('visible-x');
                 }, i * 100);
             });
+            observer.unobserve(entry.target);
         }
     });
-});
+}, options);
 const firstSkillList = document.querySelector('.mainView__card--skills');
 skillAppear.observe(firstSkillList);

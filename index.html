@@ -94,10 +94,9 @@
                         <span class="mainview__about-header">My sense of humour may be unacceptable to you ;)</span>
                         <span class="mainView__about-main">
                             I like to create things. Furniture made of old wooden boxes, wallets made of worn pants
-                            aaaand websites/webapps made of... void... static main...;). At the beginning, right after chaos, I was programming in such languages as
-                            Java, C++, you know - the vintage stuff. And one day I had to do an animated carousel gallery in JQuery.
-                            "And I said to myself: What a wonderful..."
-                            Yup :) And I also said to myself: "the hell with backend!".
+                            aaaand websites/webapps made of... void... static main... ;) At the beginning, right after chaos, I had been programming in such
+                            languages as Java, C++, you know - the vintage stuff. And one day I had to do an animated carousel gallery in JQuery.
+                            "And I said to myself: What a wonderful..." Yup :) And I also said to myself: "the hell with backend!".
                             Unfortunately I have to stick to it to this day but I do not touch it unless I really have to :)
                         </span>
                     </div>
@@ -126,7 +125,7 @@
                     <div class="mainView__card mainView__card--skills">
                         <span class="mainView__subheader">SKILLS NOW</span>
                         <ul class="mainView__skill-list">
-                            <li>
+                            <li class="mainView__card--skills-li">
                                 <span>Frontend</span><span>
                                     <img src="style/skills-angular.svg" loading="lazy" width="24" height="24" alt="Angular" class="mainView__img--skills">
                                     <div class="tooltip">Angular</div>
@@ -142,13 +141,13 @@
                                     <div class="tooltip">CSS</div>
                                 </span>
                             </li>
-                            <li>
+                            <li class="mainView__card--skills-li">
                                 <span>Backend</span><span>
                                     <img src="style/skills-php.svg" loading="lazy" width="24" height="24" alt="PHP" class="mainView__img--skills">
                                     <div class="tooltip">PHP</div>
                                 </span>
                             </li>
-                            <li>
+                            <li class="mainView__card--skills-li">
                                 <span>Databases</span><span>
                                     <img src="style/skills-mysql.svg" loading="lazy" width="24" height="24" alt="MySql/MariaDB" class="mainView__img--skills">
                                     <div class="tooltip">MySQL MariaDB</div>
@@ -156,7 +155,7 @@
                                     <div class="tooltip">PostgreSQL</div>
                                 </span>
                             </li>
-                            <li>
+                            <li class="mainView__card--skills-li">
                                 <span>Technologies</span><span>
                                     <img src="style/skills-vsc.svg" loading="lazy" width="24" height="24" alt="Visual Studio Code" class="mainView__img--skills">
                                     <div class="tooltip">VS Code</div>
@@ -172,7 +171,7 @@
                     <div class="mainView__card mainView__card--skills">
                         <span class="mainView__subheader">SKILLS FORGOTTEN LONG LONG AGO IN THE BEFORE TIME</span>
                         <ul class="mainView__skill-list">
-                            <li>
+                            <li class="mainView__card--skills-li">
                                 <span>Programming</span><span>
                                     <img src="style/oldskills-java.svg" loading="lazy" width="24" height="24" alt="Java" class="mainView__img--skills">
                                     <div class="tooltip">Java</div>
@@ -182,7 +181,7 @@
                                     <div class="tooltip">C</div>
                                 </span>
                             </li>
-                            <li>
+                            <li class="mainView__card--skills-li">
                                 <span>Front/backend</span><span>                                
                                     <img src="style/oldskills-jsp.svg" loading="lazy" width="24" height="24" alt="JSP" class="mainView__img--skills">
                                     <div class="tooltip">Java Servlet Pages</div>
@@ -198,13 +197,13 @@
                                     <div class="tooltip">Bootstrap</div>
                                 </span>
                             </li>
-                            <li>
+                            <li class="mainView__card--skills-li">
                                 <span>Databases</span><span>
                                     <img src="style/oldskills-oracle.svg" loading="lazy" width="24" height="24" alt="Oracle DB" class="mainView__img--skills">
                                     <div class="tooltip">Oracle DB</div>                                
                                 </span>
                             </li>
-                            <li>
+                            <li class="mainView__card--skills-li">
                                 <span>Technologies</span><span>
                                     <img src="style/oldskills-eclipse.svg" loading="lazy" width="24" height="24" alt="Eclipse IDE" class="mainView__img--skills">
                                     <div class="tooltip">Eclipse IDE</div>
@@ -228,24 +227,24 @@
                 <header class="mainView__header">Contact</header>
 
                 <div class="mainView__content-container mainView__content-container--contact">
-                    <div class="mainView__card mainView__card--contact">
-                        <div>
-                            <a href="https://www.linkedin.com/in/jakub-bartek-a908386/" target="_blank">
+                    <div class="mainView__card mainView__card--contact invisible">
+                        <div class="invisible">
+                            <a class="invisible" href="https://www.linkedin.com/in/jakub-bartek-a908386/" target="_blank">
                                 <img width="22" height="22" src="style/linkedin-pink-svgrepo-com.svg" alt="LinkedIn"/>
                             </a>
                         </div>
                     </div>
-                    <div class="mainView__card mainView__card--contact">
-                        <div>
-                            <div>
+                    <div class="mainView__card mainView__card--contact invisible">
+                        <div class="invisible">
+                            <div class="invisible">
                                 <div></div>
                                 <div></div>
                             </div>
                         </div>
                     </div>
-                    <div class="mainView__card mainView__card--contact">
-                        <div>
-                            <a href="mailto:jakub.bartek@gmail.com" target="_blank">
+                    <div class="mainView__card mainView__card--contact invisible">
+                        <div class="invisible">
+                            <a class="invisible" href="mailto:jakub.bartek@gmail.com" target="_blank">
                                 <img width="22" height="22" src="style/email-svgrepo-com.svg" alt="e-mail"/>
                             </a>
                         </div>
@@ -257,19 +256,11 @@
 
     <div class="project-details">
         <div class="project-details__main">
-            <div class="project-details__title"></div>
+            <div class="project-details__title invisible"></div>
             
-             <div class="project-details__img-wrpr">
-<!--                 <img class="project-details__img project-details__img--prev" id="project-details__img--prev" width="1" height="1" src="style/project-atlas.jpg">
-                
-                <img class="project-details__img project-details__img--next" id="project-details__img--next" width="1" height="1" src="style/project-atlas.jpg">
-
-                <img class="project-details__img project-details__img--behind" id="project-details__img--behind" width="1" height="1" src="style/project-blendwax.jpg">
-
-                <img class="project-details__img" id="project-details__img" width="1" height="1"> -->
-            </div> 
+            <div class="project-details__img-wrpr invisible"></div> 
             
-            <div class="project-details__info">
+            <div class="project-details__info invisible">
 
                 <div class="project-details__desc"></div>
 
