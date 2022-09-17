@@ -322,6 +322,50 @@ let contactAppear = new IntersectionObserver((entries, observer) => {
 
 contactAppear.observe(contactSection)
 
+const words = [
+  {word:'piggy',time:0},
+  {word:'piggy',time:400},
+  {word:'piggy',time:800},
+  {word:'cant',time:1600},
+  {word:'you',time:2000},
+  {word:'see',time:2400},
+  {word:'sometimes',time:3200},
+  {word:'your',time:3800},
+  {word:'words',time:4000},
+  {word:'just',time:4400},
+  {word:'hipnotize',time:4600},
+  {word:'me',time:5600},
+  {word:'',time:7000}
+]
+let isWordsAnimationOn:boolean = false
+contactCards[1].addEventListener('mouseenter', () => {
+  console.log('poczontech: '+isWordsAnimationOn)
+  if(!isWordsAnimationOn){
+    words.forEach((w,i) => {
+              
+        isWordsAnimationOn = true
+        
+        setTimeout(() => {
+          let animatedWord = document.createElement('div')
+          animatedWord.className = 'animated-word'
+          animatedWord.innerHTML = w.word
+          contactCards[1].children[0].children[0].appendChild(animatedWord)
+
+          isWordsAnimationOn = i < words.length - 1 //true of false
+          console.log(i,w.word,isWordsAnimationOn)
+
+          if(i === words.length - 1) {
+            const animatedWords = document.querySelectorAll('.animated-word')
+            animatedWords.forEach(word => {
+              word.remove()
+            })
+          }
+
+        }, w.time)
+    })
+  }
+})
+
 /* Experience section - skills and projects */
 let options = {
   root: rootElement,
@@ -377,4 +421,4 @@ let skillAppear:IntersectionObserver = new IntersectionObserver((entries,observe
   });
 }, options)
 const firstSkillList:HTMLElement = document.querySelector('.mainView__card--skills')
-skillAppear.observe(firstSkillList)  
+skillAppear.observe(firstSkillList)
