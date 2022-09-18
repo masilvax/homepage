@@ -321,26 +321,31 @@ let contactAppear = new IntersectionObserver((entries, observer) => {
 }, options2);
 
 contactAppear.observe(contactSection)
-
+/* PiggySmalls animation and sound */
+const audio:HTMLAudioElement = new Audio('style/piggy.mp3')
 const words = [
   {word:'piggy',time:0},
-  {word:'piggy',time:400},
-  {word:'piggy',time:800},
-  {word:'cant',time:1600},
-  {word:'you',time:2000},
-  {word:'see',time:2400},
-  {word:'sometimes',time:3200},
-  {word:'your',time:3800},
-  {word:'words',time:4000},
-  {word:'just',time:4400},
-  {word:'hipnotize',time:4600},
-  {word:'me',time:5600},
-  {word:'',time:7000}
+  {word:'piggy',time:300},
+  {word:'piggy',time:600},
+  {word:"can't",time:1200},
+  {word:'you',time:1500},
+  {word:'see',time:1800},
+  {word:'sometimes',time:2400},
+  {word:'your',time:2850},
+  {word:'words',time:3000},
+  {word:'just',time:3450},
+  {word:'hypnotize',time:3600},
+  {word:'me',time:4200},
+  {word:'',time:5100}
 ]
 let isWordsAnimationOn:boolean = false
 contactCards[1].addEventListener('mouseenter', () => {
   console.log('poczontech: '+isWordsAnimationOn)
   if(!isWordsAnimationOn){
+    audio.pause();
+    audio.currentTime = 0;
+    audio.volume = 0.5
+    audio.play()
     words.forEach((w,i) => {
               
         isWordsAnimationOn = true
