@@ -3,7 +3,7 @@ const loader = document.querySelector('.loader');
 var image = new Image();
 image.src = getBgUrl(document.querySelector('body'));
 image.onload = function () {
-    console.log('Loaded!');
+    //console.log('Loaded!')
     loader.style.setProperty('animation', 'close-loader .5s linear 1s 1 forwards');
     setTimeout(() => { loader.children[0].style.setProperty('opacity', '0'); }, 1000);
     setTimeout(() => { loader.parentElement.style.setProperty('opacity', '0'); }, 1500);
@@ -145,7 +145,6 @@ projectsArr.forEach(v => {
     // Animation when in viewport - observer launch
     //projDivAppear.observe(projDiv) // change of plans - instead of observing each projDiv, let's observe projectsCard after this foreach loop
     bigTransparentButtonCovering.addEventListener('click', (e) => {
-        //console.log(e.target.dataset.name)
         openModal(e.target.dataset.name);
     });
     //carousel in modal
@@ -188,7 +187,6 @@ function openModal(title) {
     Array.from(kidsOfMain).forEach((v, i) => {
         setTimeout(() => {
             v.classList.add('visible');
-            //console.log(i,v.id)
         }, (i + 1) * 100);
     });
     const kidsOfCarousel = carousel.children;
@@ -307,7 +305,6 @@ const words = [
 ];
 let isWordsAnimationOn = false;
 contactCards[1].addEventListener('mouseenter', () => {
-    console.log('poczontech: ' + isWordsAnimationOn);
     if (!isWordsAnimationOn) {
         audio.pause();
         audio.currentTime = 0;
@@ -320,8 +317,7 @@ contactCards[1].addEventListener('mouseenter', () => {
                 animatedWord.className = 'animated-word';
                 animatedWord.innerHTML = w.word;
                 contactCards[1].children[0].children[0].appendChild(animatedWord);
-                isWordsAnimationOn = i < words.length - 1; //true of false
-                console.log(i, w.word, isWordsAnimationOn);
+                isWordsAnimationOn = i < words.length - 1; //true or false
                 if (i === words.length - 1) {
                     const animatedWords = document.querySelectorAll('.animated-word');
                     animatedWords.forEach(word => {

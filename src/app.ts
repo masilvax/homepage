@@ -5,7 +5,7 @@ var image = new Image();
 image.src = getBgUrl(document.querySelector('body'))
 
 image.onload = function () {
-    console.log('Loaded!')
+    //console.log('Loaded!')
     loader.style.setProperty('animation','close-loader .5s linear 1s 1 forwards')
     setTimeout(()=>{(loader.children[0] as HTMLElement).style.setProperty('opacity','0')},1000)
     setTimeout(()=>{loader.parentElement.style.setProperty('opacity','0')},1500)
@@ -166,7 +166,6 @@ projectsArr.forEach(v => {
     //projDivAppear.observe(projDiv) // change of plans - instead of observing each projDiv, let's observe projectsCard after this foreach loop
 
     bigTransparentButtonCovering.addEventListener('click',(e:any)=>{
-        //console.log(e.target.dataset.name)
         openModal(e.target.dataset.name)
     })
 
@@ -217,7 +216,6 @@ function openModal(title:string):void {
     Array.from(kidsOfMain).forEach((v,i) => {
         setTimeout(()=>{
             (v as HTMLElement).classList.add('visible')
-            //console.log(i,v.id)
         },(i+1)*100)
     });
 
@@ -340,7 +338,6 @@ const words = [
 ]
 let isWordsAnimationOn:boolean = false
 contactCards[1].addEventListener('mouseenter', () => {
-  console.log('poczontech: '+isWordsAnimationOn)
   if(!isWordsAnimationOn){
     audio.pause();
     audio.currentTime = 0;
@@ -356,8 +353,7 @@ contactCards[1].addEventListener('mouseenter', () => {
           animatedWord.innerHTML = w.word
           contactCards[1].children[0].children[0].appendChild(animatedWord)
 
-          isWordsAnimationOn = i < words.length - 1 //true of false
-          console.log(i,w.word,isWordsAnimationOn)
+          isWordsAnimationOn = i < words.length - 1 //true or false
 
           if(i === words.length - 1) {
             const animatedWords = document.querySelectorAll('.animated-word')
