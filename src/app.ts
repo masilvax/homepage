@@ -323,17 +323,17 @@ contactAppear.observe(contactSection)
 const audio:HTMLAudioElement = new Audio('style/piggy.mp3')
 const words = [
   {word:'piggy',time:0},
-  {word:'piggy',time:300},
-  {word:'piggy',time:600},
-  {word:"can't",time:1200},
-  {word:'you',time:1500},
-  {word:'see',time:1800},
-  {word:'sometimes',time:2400},
-  {word:'your',time:2850},
-  {word:'words',time:3000},
-  {word:'just',time:3450},
-  {word:'hypnotize',time:3600},
-  {word:'me',time:4200},
+  {word:'piggy',time:320},
+  {word:'piggy',time:640},
+  {word:"can't",time:1280},
+  {word:'you',time:1600},
+  {word:'see',time:1920},
+  {word:'sometimes',time:2560},
+  {word:'your',time:2960},
+  {word:'words',time:3120},
+  {word:'just',time:3520},
+  {word:'hypnotize',time:3680},
+  {word:'me',time:4400},
   {word:'',time:5100}
 ]
 let isWordsAnimationOn:boolean = false
