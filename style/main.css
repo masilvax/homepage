@@ -306,7 +306,7 @@ ul {
     font-style: italic;
     font-size: 20px;
     text-decoration: none;
-    outline: none;
+    /* outline: none; */ /* when navigating with tab it's better when the outline shows up */
 }
 .navigation__a:hover {
     background-color: var(--color1);
