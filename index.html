@@ -21,32 +21,32 @@
     <div class="wrapper">
         <nav class="navigation">
             <ul class="navigation__ul">
-                <li class="navigation__li" data-dest="home"><a>Home</a></li>
-                <li class="navigation__li" data-dest="about"><a>About Me</a></li>
-                <li class="navigation__li" data-dest="experience"><a>Experience</a></li>
-                <li class="navigation__li" data-dest="contact"><a>Contact</a></li>
+                <li><a href="#" class="navigation__a" data-dest="home" tabindex="2">Home</a></li>
+                <li><a href="#" class="navigation__a" data-dest="about" tabindex="3">About Me</a></li>
+                <li><a href="#" class="navigation__a" data-dest="experience" tabindex="4">Experience</a></li>
+                <li><a href="#" class="navigation__a" data-dest="contact" tabindex="5">Contact</a></li>
             </ul>
             <ul class="navigation__ul navigation__ul--toolbar">
-                <li class="navigation__li--toolbar">
-                    <a class="navigation__btn" href="https://www.linkedin.com/in/jakub-bartek-a908386/" target="_blank">
+                <li class="navigation__li-toolbar">
+                    <a class="navigation__btn" href="https://www.linkedin.com/in/jakub-bartek-a908386/" target="_blank" tabindex="6">
                         <div class="tooltip">LinkedIn</div>
                         <img class="navigation__icon-img" width="22" height="22" src="style/linkedin-svgrepo-com.svg" alt="LinkedIn"/>
                     </a>
                 </li>
-                <li class="navigation__li--toolbar">
-                    <a class="navigation__btn" href="https://github.com/masilvax" target="_blank">
+                <li class="navigation__li-toolbar">
+                    <a class="navigation__btn" href="https://github.com/masilvax" target="_blank" tabindex="7">
                         <div class="tooltip">GitHub</div>
                         <img class="navigation__icon-img" width="22" height="22" src="style/github-svgrepo-com.svg" alt="Git"/>
                     </a>
                 </li>
-                <li class="navigation__li--toolbar">
-                    <a class="navigation__btn" href="mailto:jakub.bartek@gmail.com" target="_blank">
+                <li class="navigation__li-toolbar">
+                    <a class="navigation__btn" href="mailto:jakub.bartek@gmail.com" target="_blank" tabindex="8">
                         <div class="tooltip">e-mail</div>
                         <span class="material-icons">mail</span>
                     </a>
                 </li>
-                <li class="navigation__li--toolbar">
-                    <button class="navigation__btn navigation__btn--menu">
+                <li class="navigation__li-toolbar">
+                    <button class="navigation__btn navigation__btn--menu" tabindex="1">
                         <div class="tooltip">Toggle menu</div>
                         <span class="material-icons">menu</span>
                     </button>
@@ -58,7 +58,7 @@
                 
                 <div class="mainView__content-container mainView__content-container--home">
 
-                    <div class="mainView__perspective-text">
+                    <div class="mainView__perspective-text prevent-select">
                         <div class="mainView__perspective-line">
                             <p></p>
                             <p>frontend dev</p>
@@ -110,7 +110,7 @@
                     <div class="mainView__about-arch">
                         See that arch above my head? I've read it's a webtrend for 2022
                     </div>
-                    <div class="mainView__about-efx"><span>Another</span><span>webtrend:</span><span>Text</span><span>interactions</span></div>
+                    <div class="mainView__about-efx prevent-select"><span>Another</span><span>webtrend:</span><span>Text</span><span>interactions</span></div>
                     <div class="mainView__about-big"><span>BIG</span><span>LETTERS</span><span>It's a webtrend</span></div>
                     <div class="mainView__about-borders"><span>and borders</span> <span>...borders</span><span>everywhere</span></div>
                     <div class="crossed"></div>                    
@@ -229,7 +229,7 @@
                 <div class="mainView__content-container mainView__content-container--contact">
                     <div class="mainView__card mainView__card--contact invisible">
                         <div class="invisible">
-                            <a class="invisible" href="https://www.linkedin.com/in/jakub-bartek-a908386/" target="_blank">
+                            <a class="invisible" href="https://www.linkedin.com/in/jakub-bartek-a908386/" target="_blank" tabindex="9">
                                 <img width="22" height="22" src="style/linkedin-pink-svgrepo-com.svg" alt="LinkedIn"/>
                             </a>
                         </div>
@@ -245,7 +245,7 @@
                     </div>
                     <div class="mainView__card mainView__card--contact invisible">
                         <div class="invisible">
-                            <a class="invisible" href="mailto:jakub.bartek@gmail.com" target="_blank">
+                            <a class="invisible" href="mailto:jakub.bartek@gmail.com" target="_blank" tabindex="10">
                                 <img width="22" height="22" src="style/email-svgrepo-com.svg" alt="e-mail"/>
                             </a>
                         </div>

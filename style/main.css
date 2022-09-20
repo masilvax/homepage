@@ -10,6 +10,17 @@
     box-sizing: border-box;
 }
 
+::selection {
+    color: var(--color1);
+    background-color: var(--color2);
+}
+
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
 body {
     background: url('indeks.jpg') 0/cover;
     font-size: 14px;
@@ -281,7 +292,7 @@ ul {
     background-color: var(--color1);
     width: 56px;
 }
-.navigation__li {
+.navigation__a {
     width: 100%;
     height: 56px;
     color: var(--color2);
@@ -294,12 +305,14 @@ ul {
     align-items: center;
     font-style: italic;
     font-size: 20px;
+    text-decoration: none;
+    outline: none;
 }
-.navigation__li:hover {
+.navigation__a:hover {
     background-color: var(--color1);
     border-color: var(--color1);
 }
-.navigation__li--toolbar {
+.navigation__li-toolbar {
     display: inline-block;
 }
 .navigation__btn {

@@ -50,14 +50,15 @@ window.onresize = ()=>{
 }
 
 /* Navigation clicks (scrolling to specified section) */
-const sections:HTMLCollectionOf<Element> = document.getElementsByClassName('navigation__li')
+const menuAnchors:NodeListOf<HTMLElement> = document.querySelectorAll('.navigation__a')
 
-Array.from(sections).forEach(v=>{
-    v.addEventListener('click',()=>{
-        const el:HTMLElement = document.getElementById(v.getAttribute('data-dest'))//Property 'dataset' does not exist on type 'Element' 
-        el.scrollIntoView({behavior: 'smooth', block: 'start'})
-        if (window.innerWidth < 768)
-            toggleMenu();
+menuAnchors.forEach(anchor => {
+    anchor.addEventListener('click',(ev)=>{
+      ev.preventDefault()
+      const el:HTMLElement = document.getElementById(anchor.dataset.dest)
+      el.scrollIntoView({behavior: 'smooth', block: 'start'})
+      if (window.innerWidth < 768)
+        toggleMenu();
     })
 });
 
@@ -237,7 +238,7 @@ function openModal(title:string):void {
         if (v.name === title) {
           if (i == projectsArr.length - 1) {
             nextBtn.dataset.name = projectsArr[0].name;
-            nextBtn.children[0].setAttribute('data-name',projectsArr[0].name)
+            nextBtn.children[0].setAttribute('data-name',projectsArr[0].name)//Property 'dataset' does not exist on type 'Element' 
             previousBtn.dataset.name = projectsArr[i - 1].name;
             previousBtn.children[0].setAttribute('data-name',projectsArr[i - 1].name)
           } else if (i == 0) {
@@ -279,7 +280,7 @@ spans.forEach((span,i) => {
   })
 })
 
-/* Animations - bservers for animate elements on scroll */
+/* Animations - intersectionObservers for animate elements on scroll */
 const rootElement = document.querySelector('.mainView')
 
 /* in contact section */
@@ -341,7 +342,7 @@ contactCards[1].addEventListener('mouseenter', () => {
   if(!isWordsAnimationOn){
     audio.pause();
     audio.currentTime = 0;
-    audio.volume = 0.5
+    audio.volume = 0.3
     audio.play()
     words.forEach((w,i) => {
               
