@@ -53,7 +53,7 @@ window.onresize = ()=>{
 const menuAnchors:NodeListOf<HTMLElement> = document.querySelectorAll('.navigation__a')
 
 menuAnchors.forEach(anchor => {
-    anchor.addEventListener('click',(ev)=>{
+    anchor.addEventListener('click',(ev:MouseEvent)=>{
       ev.preventDefault()
       const el:HTMLElement = document.getElementById(anchor.dataset.dest)
       el.scrollIntoView({behavior: 'smooth', block: 'start'})
@@ -166,7 +166,7 @@ projectsArr.forEach(v => {
     // Animation when in viewport - observer launch
     //projDivAppear.observe(projDiv) // change of plans - instead of observing each projDiv, let's observe projectsCard after this foreach loop
 
-    bigTransparentButtonCovering.addEventListener('click',(e:any)=>{
+    bigTransparentButtonCovering.addEventListener('click',(e:any)=>{//MouseEvent - Property 'dataset' does not exist on type 'EventTarget'
         openModal(e.target.dataset.name)
     })
 
@@ -271,7 +271,7 @@ spans.forEach((span,i) => {
       span.style.setProperty('animation','thicker-font .2s linear forwards')
     }
   })
-  span.addEventListener('mouseleave', ev => {// 2nd way - via event
+  span.addEventListener('mouseleave', (ev:MouseEvent) => {// 2nd way - via event
     if(i === 2){
       (ev.target as HTMLElement).style.setProperty('animation','thicker-font .2s linear forwards')
     } else {

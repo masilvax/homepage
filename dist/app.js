@@ -241,7 +241,7 @@ spans.forEach((span, i) => {
             span.style.setProperty('animation', 'thicker-font .2s linear forwards');
         }
     });
-    span.addEventListener('mouseleave', ev => {
+    span.addEventListener('mouseleave', (ev) => {
         if (i === 2) {
             ev.target.style.setProperty('animation', 'thicker-font .2s linear forwards');
         }

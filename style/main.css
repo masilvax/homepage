@@ -505,7 +505,8 @@ ul {
     text-shadow: 0 0 5px var(--color2);
 }
 /* after is for gradient text */
-/* the main text was placed in ::after, cause during animation on hover background-clip was messing with z-indexes, so the back text (sharp shadow) is in main div now */
+/* the main text is placed in ::after, cause during animation on hover, background-clip was messing with z-indexes, */
+/* so the back text with shadow is in ::before now (main div is empty and has data-text attribute) and there's no z-indexes */
 .mainView__perspective-line p::after {
     content: attr(data-text);
     position: absolute;
