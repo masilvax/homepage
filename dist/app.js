@@ -124,6 +124,7 @@ projectsArr.forEach(v => {
     //projects card  
     const projDiv = document.createElement('div');
     projDiv.className = 'mainView__projects-li';
+    projDiv.dataset.name = v.name;
     const imgWrapper = document.createElement('div');
     imgWrapper.className = 'mainView__project-imgwrpr'; //just for bg-color and mix-blend-mode
     const img = document.createElement('img');
@@ -138,15 +139,11 @@ projectsArr.forEach(v => {
     description.className = 'mainView__project-info';
     description.innerHTML = `<span class="mainView__project-title">${v.name}</span><span class="mainView__project-desc">${v.description}</span>`;
     projDiv.appendChild(description);
-    const bigTransparentButtonCovering = document.createElement('div');
-    bigTransparentButtonCovering.className = 'mainView__project-btn';
-    bigTransparentButtonCovering.dataset.name = v.name;
-    projDiv.appendChild(bigTransparentButtonCovering);
     projectsCard.appendChild(projDiv);
     // Animation when in viewport - observer launch
     //projDivAppear.observe(projDiv) // change of plans - instead of observing each projDiv, let's observe projectsCard after this foreach loop
-    bigTransparentButtonCovering.addEventListener('click', (e) => {
-        openModal(e.target.dataset.name);
+    projDiv.addEventListener('click', (e) => {
+        openModal(projDiv.dataset.name);
     });
     //carousel in modal
     const imgCarousel = document.createElement('img');
