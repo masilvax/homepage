@@ -869,7 +869,7 @@ background-clip: text;
 .mainView__project-img {
     width: calc(160px - var(--borderWidth)*2);/* width heigth in html for performance so we need this */
     height: calc(160px - var(--borderWidth)*2);
-    /*mix-blend-mode: hard-light; *//* this causes backdrop-filter:blur(10px) to not working on some other elements, not each of them though */
+    mix-blend-mode: hard-light;/* this causes backdrop-filter:blur(10px) to not working on some other elements in firefox, not each of them though */
     filter: grayscale(1) brightness(.5);
 }
 .mainView__project-info {
