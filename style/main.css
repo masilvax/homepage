@@ -932,6 +932,20 @@ p{
     opacity: 1;
 }
 
+.mouse-track {
+
+    --rotateX: 0deg;
+    --rotateY: 0deg;
+
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateY(var(--rotateY)) rotateX(var(--rotateX));
+}
+
+/* .mouse-track > div {
+    transform-style: preserve-3d;
+    transform: translateZ(50px);
+} */
+
 @media screen and (min-width: 576px){
 
     .mainView__card {
