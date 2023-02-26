@@ -798,7 +798,7 @@ background-clip: text;
 }
 .mainView__card--contact {
     aspect-ratio: 1;
-    transition: transform .8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform .8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1), scale .8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 .mainView__card--contact div {
     border: var(--borderWidth) solid var(--color2);
@@ -806,7 +806,7 @@ background-clip: text;
 .mainView__card--contact > div {
     height: 100%;
     padding: 8px;
-    transition: transform .8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform .8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1), scale .8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 .mainView__card--contact > div > div { /* circle */
     border-radius: 50%;
@@ -815,7 +815,7 @@ background-clip: text;
     justify-content: space-around;
     align-items: center;
     border: var(--borderWidth) solid var(--color1);
-    transition: transform .8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform .8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1), scale .8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 .mainView__card--contact > div > div > div { /* Pig eyes */
     border-radius: 50%;
@@ -830,7 +830,7 @@ background-clip: text;
     display: block;
     width: 100%;
     height: 100%;
-    transition: transform .8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform .8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1), scale .8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .mainView__subheader {
@@ -916,12 +916,14 @@ p{
 }
 
 .invisible {
-    transform: scale(.1);
+    /* transform: scale(.1); */
     opacity: 0;
+    scale: .1;
 }
 .visible {
-    transform: scale(1);
+    /* transform: scale(1); */
     opacity: 1;
+    scale: 1;
 }
 .invisible-x {
     transform: scaleX(.1);
