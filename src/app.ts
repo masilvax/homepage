@@ -365,21 +365,39 @@ contactCards[1].addEventListener('mouseenter', () => {
 })
 
 /* Mouse interaction with piggy-contact */
-const piggyContact = document.querySelector('.mouse-track') 
-document.addEventListener("mousemove", e => rotatePiggyContact(e,piggyContact as HTMLElement))
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
 
-const rotatePiggyContact = (event: MouseEvent, element: HTMLElement) => {
-  const x = event.clientX
-  const y = event.clientY
+if (!isMobile) {
+  const piggyContacts = document.querySelectorAll(".mouse-track");
 
-  const middleX = window.innerWidth/2
-  const middleY = window.innerHeight/2
+  document.addEventListener("mousemove", (e) => {
+    window.requestAnimationFrame(() => { // to prevent animation glitches - without that only last element animates smoothly in FF
+      piggyContacts.forEach((piggyContact) => {
+        rotatePiggyContact(e, piggyContact as HTMLElement);
+      });
+    });
+  });
+}
 
-  const offsetX = ((x - middleX)/middleX) * 45
-  const offsetY = ((y - middleY)/middleY) * 45
+const rotatePiggyContact = (e: MouseEvent, element: HTMLElement) => {
+  
+  const x = e.clientX
+  const y = e.clientY
+
+  const rect = element.getBoundingClientRect()
+
+  const middleX = rect.left + (rect.width/2)// + window.scrollX//window.innerWidth/2
+  const middleY = rect.top + (rect.height/2)// + window.scrollY//window.innerHeight/2
+
+  const offsetX = ((x - middleX)/window.innerWidth) * 70
+  let offsetY = ((y - middleY)/window.innerHeight) * 70
+
+  offsetY = offsetY < -70 ? 0 : offsetY
 
   element.style.setProperty("--rotateX", -1 * offsetY + "deg")
   element.style.setProperty("--rotateY", offsetX + "deg")
+  // TO SAMO - tylko ostatni się płynnie animuje
+  //element.style.setProperty("transform","perspective(1000px) rotateX("+(-1 * offsetY)+"deg) rotateY("+offsetX+"deg)")
 }
 
 /* Experience section - skills and projects */
