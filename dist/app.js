@@ -62,6 +62,21 @@ const projectsCard = document.querySelector('.mainView__projects');
 // When adding a project also remember to make change in css grid!!
 const projectsArr = [
     {
+        name: "Kotłownia",
+        url: "https://serwer1445315.home.pl/kotlownia",
+        imgSrc: "style/project-kotlownia.jpg",
+        description: "Environmental sensors for my boiler room.",
+        stack: 'Angular 19, Material Design, PHP, MySQL, Arduino IDE, C, ESP32, LEGO Bricks :D',
+    },
+    // {
+    //   name: "Ogrody Brody",
+    //   url: "http://ogrody-brody.pl",
+    //   imgSrc: "style/project-planthisshit.jpg",
+    //   description:
+    //     "Garden landscape designer website with CMS for a client.",
+    //   stack:'Angular 17, Ag-Grid, Material Design, PHP, MySQL',
+    // },
+    {
         name: "PlanThisSh!t",
         url: "http://planthisshit.com",
         imgSrc: "style/project-planthisshit.jpg",

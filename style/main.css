@@ -916,6 +916,11 @@ p{
     text-align: justify;
 }
 
+.strike-through-text {
+    text-decoration: line-through;
+    color: #007d7d;
+}
+
 .invisible {
     /* transform: scale(.1); */
     opacity: 0;
