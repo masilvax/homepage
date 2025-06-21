@@ -79,7 +79,7 @@ const projectsArr: project[] = [
     imgSrc: "style/project-kotlownia.jpg",
     description:
       "Environmental sensors for my boiler room.",
-    stack:'Angular 19, Material Design, PHP, MySQL, Arduino IDE, C, ESP32, LEGO Bricks :D',
+    stack:'Angular 19, Material Design, PHP, MySQL, Arduino IDE, C++, ESP32, LEGO Bricks :D',
   },
   // {
   //   name: "Ogrody Brody",
